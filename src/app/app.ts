@@ -225,7 +225,7 @@ elif logistics.delay > 15_mins:
       subtitle: 'Data Interchange Standards',
       issuer: 'Pharma Standards Academy',
       date: '2026',
-      file: 'assets/SDTMCertificate.pdf'
+      file: 'assets/SDTMcertificate.pdf'
     }
   ];
 
