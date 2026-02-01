@@ -21,12 +21,19 @@ export class App {
 
   activeImage: string | null = null;
   activeProject: any = null;
+  showComingSoonToast = false;
 
   setLang(lang: 'ro' | 'en') { this.currentLang = lang; }
   openImage(imgUrl: string) { this.activeImage = imgUrl; }
   closeImage() { this.activeImage = null; }
   openProject(project: any) { this.activeProject = project; }
   closeProject() { this.activeProject = null; }
+
+  triggerComingSoon() {
+    if (this.showComingSoonToast) return;
+    this.showComingSoonToast = true;
+    setTimeout(() => { this.showComingSoonToast = false; }, 2500);
+  }
 
   clinicalData = [
     { group: 'Control', age: 68, ae_score: 15 }, { group: 'Control', age: 72, ae_score: 22 },
@@ -38,9 +45,6 @@ export class App {
   ageThreshold: number = 30;
   chartHeights: number[] = [20, 20];
   chartLabels: string[] = ['20', '20'];
-  downloadText_ro: string = "GENEREAZĂ RAPORT PDF";
-  downloadText_en: string = "DOWNLOAD REPORT";
-  isProcessing: boolean = false;
 
   constructor() { this.updateDashboard(); }
 
@@ -54,21 +58,7 @@ export class App {
     this.chartLabels = [avgControl.toFixed(1), avgTreat.toFixed(1)];
   }
 
-  triggerDownload() {
-    if (this.isProcessing) return;
-    this.isProcessing = true;
-    this.downloadText_ro = "SE PROCESEAZĂ...";
-    this.downloadText_en = "PROCESSING...";
-    setTimeout(() => {
-      this.downloadText_ro = "RAPORT FINALIZAT ✅";
-      this.downloadText_en = "REPORT READY ✅";
-      setTimeout(() => {
-        this.downloadText_ro = "GENEREAZĂ RAPORT PDF";
-        this.downloadText_en = "DOWNLOAD REPORT";
-        this.isProcessing = false;
-      }, 2000);
-    }, 1500);
-  }
+  skillPills = ['Quality Engineer', 'Biostatistician', 'Full-Stack Developer', 'Storyteller', 'GXP Compliance'];
 
   rProjects = [
     {
@@ -92,14 +82,25 @@ export class App {
       impact_en: '90% reduction in analysis time for lab validation.',
       image: 'assets/r_qpcr.png',
       code: `ggplot(data, aes(x=log10(Conc), y=Ct)) + geom_smooth(method="lm")`
+    },
+    {
+      title: 'Genomics Heatmap', subtitle: 'Gene Expression', icon: '🧬',
+      problem_ro: 'Vizualizarea datelor genetice multidimensionale este imposibilă în tabele standard.',
+      problem_en: 'Visualizing high-dimensional genetic expression data is impossible in standard tables.',
+      solution_ro: 'Implementare complexă Pheatmap în R pentru clustering și analiză de corelație.',
+      solution_en: 'Complex Pheatmap implementation in R for clustering and correlation analysis.',
+      impact_ro: 'Identificarea markerilor genetici pentru studii clinice.',
+      impact_en: 'Identifying genetic markers for clinical trials.',
+      image: 'assets/r_heatmap.png',
+      code: `pheatmap(exp_data, clustering_distance_rows = "euclidean", main = "Gene Expression Profile")`
     }
   ];
 
   projects = [
     {
       title: 'Guardian Aingel', badge: 'Safety Intelligence', image: 'assets/dashboard_ui.png', logo: 'assets/LogoGuardianAingel.png',
-      description_ro: 'Sistem proactiv care previne accidente și amenzi prin Computer Vision.',
-      description_en: 'Proactive system preventing accidents and fines using Computer Vision.',
+      description_ro: 'Motor Cognitiv Privacy-First. Nu găsim erori; eliminăm riscul de 8M Euro/zi de oprire regulatorie prin Federated Learning și LLM-uri locale.',
+      description_en: 'A Privacy-First Cognitive Engine. We don\'t just find errors; we eliminate the 8M Euro/day risk of regulatory shutdown through Federated Learning and Local LLMs.',
       full_desc_ro: 'Guardian Aingel nu este doar un "polițist" SSM, ci un scut financiar. Sistemul folosește AI pentru a identifica instant lipsa EIP sau pericolele pe șantier.\n\nLOGISTICĂ & PREVENȚIE: Dacă betonul nu este turnat la ora stabilită, Guardian recalculează automat fluxul livrărilor.',
       full_desc_en: 'Guardian Aingel is not just an HSE "cop," but a financial shield. The system uses AI to instantly identify PPE violations or site hazards.\n\nLOGISTICS & PREVENTION: If concrete isn\'t poured as scheduled, Guardian automatically recalculates delivery flows.',
       code_files: [{ name: 'hazard_detector.py', code: 'if hazard_detected:\n  alert.send_manager("RISK_OF_FINE", penalty_estimate="10k_RON")' }],
@@ -109,10 +110,10 @@ export class App {
   ];
 
   jobs = [
-    { role_ro: 'Inginer de Calitate (GXP)', role_en: 'Quality Engineer (GXP)', company: 'Terapia SA', period: '04/2025 - 10/2025', desc_ro: 'SOP Management, GXP, ALCOA+ Data Integrity, investigații CAPA.', desc_en: 'SOP Management, GXP, ALCOA+ Data Integrity, CAPA investigations.' },
-    { role_ro: 'Sales & Business Development', role_en: 'Sales & Business Development', company: 'Freelance', period: '2023 - 2025', desc_ro: 'Prospecție intensivă (Cold Calling), management CRM și negociere strategică.', desc_en: 'Intensive prospecting (Cold Calling), CRM management, and strategic negotiation.' },
-    { role_ro: 'Fondator & Lead Dev', role_en: 'Founder & Lead Dev', company: 'Aiudit Solutions', period: '2024 - Prezent', desc_ro: 'Arhitectură AI RAG Privacy-First, Dockerizare și soluții de securitate industrială.', desc_en: 'Privacy-First AI RAG architecture, Dockerization, and industrial security solutions.' },
-    { role_ro: 'Customer Exp. Manager', role_en: 'Customer Exp. Manager', company: 'Tărâmul Elfilor', period: '2015 - 2020', desc_ro: 'Recrutare echipe "Elfi", creare povești magice și experiențe educaționale prin psihologia copilului.', desc_en: 'Recruited "Elves," created magical stories and educational experiences via child psychology.' }
+    { role_ro: 'Inginer de Calitate (GXP)', role_en: 'Quality Engineer (GXP)', company: 'Terapia SA', period: '04/2025 - 10/2025', desc_ro: 'SOP Management, GXP, ALCOA+ Data Integrity, investigații CAPA.', desc_en: 'SOP Management, GXP, ALCOA+ Data Integrity, CAPA investigations.', full_desc_ro: 'SOP Management, GXP, ALCOA+ Data Integrity, investigații CAPA.', full_desc_en: 'SOP Management, GXP, ALCOA+ Data Integrity, CAPA investigations.' },
+    { role_ro: 'Sales & Business Development', role_en: 'Sales & Business Development', company: 'Freelance', period: '2023 - 2025', desc_ro: 'Prospecție intensivă (Cold Calling), management CRM și negociere strategică.', desc_en: 'Intensive prospecting (Cold Calling), CRM management, and strategic negotiation.', full_desc_ro: 'Prospecție intensivă (Cold Calling), management CRM și negociere strategică.', full_desc_en: 'Intensive prospecting (Cold Calling), CRM management, and strategic negotiation.' },
+    { role_ro: 'Fondator & Lead Dev', role_en: 'Founder & Lead Dev', company: 'Aiudit Solutions', period: '2024 - Prezent', desc_ro: 'Arhitectură AI RAG Privacy-First, Dockerizare și soluții de securitate industrială.', desc_en: 'Privacy-First AI RAG architecture, Dockerization, and industrial security solutions.', full_desc_ro: 'Arhitectură AI RAG Privacy-First, Dockerizare și soluții de securitate industrială.', full_desc_en: 'Privacy-First AI RAG architecture, Dockerization, and industrial security solutions.' },
+    { role_ro: 'Customer Exp. Manager', role_en: 'Customer Exp. Manager', company: 'Tărâmul Elfilor', period: '2015 - 2020', desc_ro: 'Am fost acolo de la început, construind o lume magică. Am condus o echipă de „Elfi" (educatori) pentru a crea povești pedagogice immersive bazate pe psihologia copilului. Nu ne jucam doar; ingineriam amintiri din copilărie.', desc_en: 'I was there from the beginning, building a magical world. Managed a team of \'Elves\' (educators) to create immersive pedagogical stories based on child psychology. We didn\'t just play; we engineered childhood memories.', full_desc_ro: 'Am fost acolo de la început, construind o lume magică. Am condus o echipă de „Elfi" (educatori) pentru a crea povești pedagogice immersive bazate pe psihologia copilului. Nu ne jucam doar; ingineriam amintiri din copilărie.', full_desc_en: 'I was there from the beginning, building a magical world. Managed a team of \'Elves\' (educators) to create immersive pedagogical stories based on child psychology. We didn\'t just play; we engineered childhood memories.' }
   ];
 
   education = [
@@ -129,5 +130,6 @@ export class App {
     { title: 'Genetic potential of groundwater bacteria', type: 'Thesis' }
   ];
 
-  plantImages = ['assets/plants/plant1.jpg', 'assets/plants/plant2.jpg', 'assets/plants/plant3.jpg'];
+  ecosystemText_ro = 'Dincolo de cod, conduc un laborator de biotehnologie privat acasă. Conduc în prezent o colecție de peste 300 de Aroizi rari și experimentez cu culturi celulare la domiciliu. Este locul unde background-ul meu în biologie se întâlnește cu obsesia pentru sisteme.';
+  ecosystemText_en = 'Beyond the code, I run a private biotech lab at home. I\'m currently managing a collection of over 300 rare Aroids and experimenting with home-based cell cultures. It\'s where my biology background meets my obsession for systems.';
 }
