@@ -32,7 +32,7 @@ export class App {
   rStatsSectionDesc_en = 'Development of automated pipelines for Advanced Biostatistics. Includes survival analysis (Kaplan-Meier) for oncology studies and automated validation algorithms for qPCR data, ensuring traceability and data integrity per GxP standards.';
 
   skills = [
-    { category: 'Data Science', items: ['R Programming (Expert)', 'SAS', 'MedDRA', 'SDTM', 'ADaM', 'Clinical Data', 'Python (Pandas)', 'SQL'] },
+    { category: 'Data Science', items: ['MedDRA', 'SDTM', 'ADaM', 'R Programming (Expert)', 'SAS', 'Clinical Data', 'Python (Pandas)', 'SQL'] },
     { category: 'R&D & Molecular', items: ['qPCR', 'HPLC', 'Gas Chromatography (GC)', 'Primer Design', 'IVDR Validation'] },
     { category: 'Quality Engineering', items: ['ALCOA+ Principles', 'ISO 13485', 'GMP / GCP', 'SOP Management', 'CAPA'] },
     { category: 'Business & Sales', items: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'] },
@@ -216,7 +216,7 @@ elif logistics.delay > 15_mins:
     {
       title: 'Introduction to Drug Safety and Pharmacovigilance',
       subtitle: 'An Abridged Course',
-      issuer: 'Biopharma Institute',
+      issuer: '',
       date: '2026',
       file: 'assets/Biopharmacertificate.pdf'
     },
