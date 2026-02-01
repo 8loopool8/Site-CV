@@ -196,7 +196,28 @@ elif logistics.delay > 15_mins:
     { title_ro: 'Breathing Chemicals: Air Pollution Review', title_en: 'Breathing Chemicals: Air Pollution Review', type_ro: 'Publicat (2022)', type_en: 'Published (2022)' },
     { title_ro: 'Poluarea microbială în Râul Mureș', title_en: 'Microbial pollution in Mureș River', type_ro: 'Cercetare Academică', type_en: 'Academic Research' },
     { title_ro: 'Potențialul genetic al bacteriilor din apele subterane', title_en: 'Genetic potential of groundwater bacteria', type_ro: 'Teză (10/10)', type_en: 'Thesis (10/10)' }
-    ];
+  ];
+
+  certifications = [
+    {
+      title: 'Good Clinical Practice (GCP)',
+      issuer: 'NIDA Clinical Trials Network',
+      date: '2025',
+      file: 'assets/GCPcertificate.pdf'
+    },
+    {
+      title: 'SDTM & Clinical Data Standards',
+      issuer: 'Pharma Standards Academy',
+      date: '2026',
+      file: 'assets/SDTMCertificate.pdf'
+    },
+    {
+      title: 'Biopharma & Industrial Biotechnology',
+      issuer: 'UBB Cluj-Napoca',
+      date: '2023',
+      file: 'assets/Biopharmacertificate.pdf'
+    }
+  ];
 
   setLang(lang: 'ro' | 'en') {
     this.currentLang = lang;
