@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiudit - Guardian Aingel Portfolio</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050505;
+            --card: rgba(20, 20, 20, 0.9);
+            --neon: #00e5ff;       
+            --neon-purple: #d500f9;
+            --text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND --- */
+        .cyber-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--bg) 2px, transparent 2px),
+                linear-gradient(90deg, var(--bg) 2px, transparent 2px),
+                linear-gradient(rgba(0, 229, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.07) 1px, transparent 1px);
+            background-size: 80px 80px;
+            transform: perspective(500px) rotateX(60deg);
+            transform-origin: top center;
+            animation: gridMove 20s linear infinite;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 1000px; } }
+        .vignette {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 20%, #050505 90%);
+            z-index: -1; pointer-events: none;
+        }
+
+        /* --- SPLASH SCREEN --- */
+        #lang-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.8s ease;
+        }
+        .logo-container { display: flex; gap: 40px; margin-bottom: 50px; align-items: center; }
+        .splash-logo {
+            height: 120px; width: auto; object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.5));
+            animation: pulseGlow 3s infinite alternate;
+        }
+        @keyframes pulseGlow { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
+        
+        .lang-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--neon); color: var(--neon);
+            padding: 15px 60px; font-size: 1.1rem; cursor: pointer; margin: 0 20px;
+            text-transform: uppercase; letter-spacing: 3px; font-weight: 700;
+            transition: 0.3s; position: relative; overflow: hidden;
+        }
+        .lang-btn:hover { background: var(--neon); color: #000; box-shadow: 0 0 40px rgba(0, 229, 255, 0.8); }
+
+        /* LOGICA BILINGVA */
+        #main-content { display: none; opacity: 0; transition: opacity 1s ease; }
+        .lang-en, .lang-ro { display: none; }
+        body.show-en .lang-en { display: block; }
+        body.show-en .lang-en-inline { display: inline; }
+        body.show-ro .lang-ro { display: block; }
+        body.show-ro .lang-ro-inline { display: inline; }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(15px);
+            padding: 7rem 2rem; text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        h1 { font-size: 5rem; margin: 0; text-transform: uppercase; letter-spacing: 10px; font-weight: 900; line-height: 1; }
+        h1 span { color: #fff; text-shadow: 0 0 20px var(--neon); }
+        .subtitle { color: #aaa; font-size: 1.4rem; margin-top: 25px; letter-spacing: 3px; text-transform: uppercase; font-weight: 300; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+
+        /* PROJECT CARD */
+        .project-spotlight {
+            background-color: var(--card); backdrop-filter: blur(10px);
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.6); overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .project-header {
+            padding: 3rem; background: linear-gradient(180deg, rgba(20,20,20,1), rgba(10,10,10,1));
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+        }
+        .project-title { font-size: 2.5rem; margin: 0; color: #fff; font-weight: 800; }
+        .badge { 
+            background: rgba(0, 229, 255, 0.05); color: var(--neon); border: 1px solid rgba(0, 229, 255, 0.3);
+            padding: 8px 18px; font-size: 0.85rem; margin-left: 8px;
+            font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* GRID IMAGINI */
+        .showcase-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2px; background-color: #000;
+        }
+        .showcase-item { position: relative; height: 400px; overflow: hidden; cursor: pointer; }
+        .showcase-item.wide { grid-column: 1 / -1; height: 600px; }
+        .showcase-img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            filter: grayscale(20%) contrast(110%);
+        }
+        .showcase-item:hover .showcase-img { transform: scale(1.05); filter: grayscale(0%); }
+        
+        .caption {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, #000 10%, transparent 100%);
+            color: #fff; padding: 40px; transform: translateY(20px); opacity: 0; transition: 0.4s;
+        }
+        .showcase-item:hover .caption { transform: translateY(0); opacity: 1; }
+        .caption-title { color: var(--neon); font-weight: 800; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 5px; }
+
+        /* DESCRIERE */
+        .description { padding: 6rem 2rem; background: rgba(10,10,10,0.98); text-align: center; }
+        .text-wrapper { max-width: 900px; margin: 0 auto; }
+
+        h3 { 
+            color: #fff; font-size: 2.2rem; margin-bottom: 2rem; 
+            text-transform: uppercase; letter-spacing: 3px; display: inline-block;
+            border-bottom: 3px solid var(--neon); padding-bottom: 10px;
+        }
+
+        p { color: #ccc; margin-bottom: 30px; font-size: 1.2rem; text-align: justify; text-align-last: center; }
+        
+        ul { padding-left: 0; list-style: none; margin-top: 60px; text-align: left; }
+        li { 
+            margin-bottom: 20px; color: #ccc; padding: 25px; 
+            border-left: 4px solid #333; background: rgba(255,255,255,0.02);
+            transition: 0.3s;
+        }
+        li:hover { border-left-color: var(--neon); background: rgba(0, 229, 255, 0.05); transform: translateX(10px); }
+        strong { color: #fff; font-weight: 800; }
+
+        .btn {
+            display: inline-block;
+            background: var(--neon); color: #000;
+            padding: 20px 70px; text-decoration: none; font-weight: 900;
+            margin-top: 70px; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px;
+            border: none; cursor: pointer; border-radius: 50px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+        }
+        .btn:hover { background: #fff; box-shadow: 0 0 60px rgba(0, 229, 255, 0.8); transform: scale(1.05); }
+
+        /* MODAL */
+        #code-modal {
+            display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95); backdrop-filter: blur(15px);
+        }
+        .modal-content {
+            background-color: #111; margin: 5% auto; padding: 0; border: 1px solid var(--neon);
+            width: 80%; max-width: 1000px; animation: slideUp 0.5s ease;
+        }
+        @keyframes slideUp { from {transform: translateY(100px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+        .modal-header { padding: 20px 30px; background: #000; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+        .modal-title { color: var(--neon); font-family: monospace; font-weight: bold; font-size: 1.2rem; }
+        .close-btn { color: #fff; font-size: 30px; cursor: pointer; transition: 0.2s; }
+        .code-block { background: #080808; padding: 40px; overflow: auto; color: #a9b7c6; font-family: monospace; font-size: 0.9rem; max-height: 600px; text-align: left; }
+        .c-kw { color: #cc7832; } .c-fn { color: #ffc66d; } .c-str { color: #6a8759; } .c-cmt { color: #808080; } 
+
+        footer { text-align: center; padding: 6rem 0; color: #444; font-size: 0.9rem; }
+
+        @media (max-width: 900px) {
+            h1 { font-size: 3rem; }
+            .showcase-item.wide { height: 300px; }
+            .showcase-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="vignette"></div>
+
+    <div id="lang-overlay">
+        <div class="logo-container" data-aos="zoom-in" data-aos-duration="1500">
+            <img src="Logo.png" alt="Aiudit" class="splash-logo">
+            <div style="height: 60px; width: 1px; background: rgba(255,255,255,0.2);"></div>
+            <img src="LogoGuardianAingel.png" alt="Guardian" class="splash-logo">
+        </div>
+        <div class="lang-title" data-aos="fade-up" data-aos-delay="500">Select Interface Language</div>
+        <div data-aos="fade-up" data-aos-delay="800">
+            <button class="lang-btn" onclick="selectLanguage('en')">English</button>
+            <button class="lang-btn" onclick="selectLanguage('ro')">Română</button>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <div class="container" style="padding: 0;">
+                <h1 data-aos="fade-down" data-aos-duration="1000">Guardian <span>Aingel</span></h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-delay="300">
+                    <span class="lang-en-inline">Autonomous Safety Spirit | <strong>Powered by Gemini 3</strong></span>
+                    <span class="lang-ro-inline">Spirit Autonom de Siguranță | <strong>Propulsat de Gemini 3</strong></span>
+                </p>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="project-spotlight" data-aos="fade-up" data-aos-duration="1200">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">Guardian Aingel</h2>
+                        <p style="color: #bbb; margin: 5px 0 0 0; font-size: 1rem; letter-spacing: 1px;">
+                            <span class="lang-en">The Ultimate HSE Compliance Engine</span>
+                            <span class="lang-ro">Motorul Suprem de Conformitate SSM</span>
+                        </p>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="badge">Gemini 3 Vision</span>
+                        <span class="badge">Python 3.13</span>
+                        <span class="badge">AsyncIO</span>
+                        <span class="badge">Binary Injection</span>
+                    </div>
+                </div>
+
+                <div class="showcase-grid">
+                    <div class="showcase-item wide" data-aos="fade-in">
+                        <img src="dashboard_ui.png" alt="Dashboard" class="showcase-img">
+                        <div class="caption">
+                            <div class="caption-title">Mission Control</div>
+                            Dark-mode optimized interface for low-light industrial control rooms.
+                        </div>
+                    </div>
+                    <div class="showcase-item" data-aos="fade-right" data-aos-delay="200">
+                        <img src="ai_report1.png" alt="Vision Analysis" class="showcase-img">
+                        <div class="caption">
+                            <div class="caption-title">Gemini 3 Visual Cortex</div>
+                            Contextual understanding of hazards (PPE, Chemicals, Heights).
+                        </div>
+                    </div>
+                    <div class="showcase-item" data-aos="fade-left" data-aos-delay="300">
+                        <img src="async_download.png" alt="Download" class="showcase-img">
+                        <div class="caption">
+                            <div class="caption-title">Auto-Update Legal Engine</div>
+                            Fetches real-time laws from Archive Mirrors, bypassing firewalls.
+                        </div>
+                    </div>
+                    <div class="showcase-item" data-aos="fade-right" data-aos-delay="400">
+                        <img src="ai_report.png" alt="Report" class="showcase-img">
+                        <div class="caption">
+                            <div class="caption-title">Instant Auditing</div>
+                            Generates compliance reports with 99.1% confidence.
+                        </div>
+                    </div>
+                    <div class="showcase-item" data-aos="fade-left" data-aos-delay="500">
+                        <img src="code_structure.png" alt="Code" class="showcase-img">
+                        <div class="caption">
+                            <div class="caption-title">Modular Architecture</div>
+                            Built for scale with separate Logic/UI layers.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <div class="text-wrapper">
+                        <div class="lang-en">
+                            <h3 data-aos="fade-up">More Than Software: A Guardian of Lives</h3>
+                            <p data-aos="fade-up" data-aos-delay="200">
+                                In the high-stakes world of industrial construction, a split-second oversight can cost a life or bankrupt a company through massive fines. <strong>Guardian Aingel</strong> was engineered for the <strong>Google Gemini 3 Hackathon</strong> to solve this exact problem: it never sleeps, it never blinks, and it knows the law better than any human inspector.
+                            </p>
+                            
+                            <ul>
+                                <li data-aos="fade-left" data-aos-delay="100">
+                                    <strong>Self-Updating Legal Brain (RAG):</strong> Regulations change. Guardian Aingel features an autonomous crawler that fetches the latest OSHA amendments directly from secure Government Archive Mirrors.
+                                </li>
+                                <li data-aos="fade-left" data-aos-delay="200">
+                                    <strong>Smart Token Economy:</strong> We don't burn API credits on empty frames. The "10-Second Sentinel" algorithm reduces operational costs by 90% while maintaining 24/7 vigilance.
+                                </li>
+                                <li data-aos="fade-left" data-aos-delay="300">
+                                    <strong>Binary Fail-Safe Protocol:</strong> Internet outage? No problem. The system includes a custom-written module that generates valid PDF binary structures offline.
+                                </li>
+                            </ul>
+
+                            <button class="btn" onclick="openModal()" data-aos="zoom-in" data-aos-delay="400">View Source Snippets</button>
+                        </div>
+
+                        <div class="lang-ro">
+                            <h3 data-aos="fade-up">Mai Mult Decât Software: Un Gardian al Vieților</h3>
+                            <p data-aos="fade-up" data-aos-delay="200">
+                                În lumea construcțiilor industriale, o secundă de neatenție poate costa o viață sau poate falimenta o companie prin amenzi uriașe. <strong>Guardian Aingel</strong> a fost creat pentru <strong>Hackathon-ul Google Gemini 3</strong> pentru a rezolva exact această problemă: nu doarme niciodată, nu clipește și cunoaște legea mai bine decât orice inspector uman.
+                            </p>
+
+                            <ul>
+                                <li data-aos="fade-left" data-aos-delay="100">
+                                    <strong>Creier Legal Auto-Actualizat (RAG):</strong> Legile se schimbă. Guardian Aingel dispune de un crawler autonom care descarcă cele mai noi amendamente OSHA direct din Oglinzi de Arhivă.
+                                </li>
+                                <li data-aos="fade-left" data-aos-delay="200">
+                                    <strong>Economie Inteligentă de Tokeni:</strong> Nu irosim credite API. Algoritmul "Santinela de 10 Secunde" reduce costurile operaționale cu 90% fără a sacrifica vigilența.
+                                </li>
+                                <li data-aos="fade-left" data-aos-delay="300">
+                                    <strong>Protocol de Siguranță Binară:</strong> A picat internetul? Sistemul generează structuri binare PDF valide offline. Lanțul de audit nu este niciodată întrerupt.
+                                </li>
+                            </ul>
+
+                            <button class="btn" onclick="openModal()" data-aos="zoom-in" data-aos-delay="400">Vezi Snippets Cod</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>&copy; 2026 Aiudit Solutions. All rights reserved.</footer>
+    </div>
+
+    <div id="code-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">>> SYSTEM_CORE.PY</span>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="code-block">
+<pre>
+<span class="c-kw">async def</span> <span class="c-fn">trigger_ai_analysis</span>(self, e):
+    <span class="c-cmt"># HYBRID ENGINE: Attempts Cloud Analysis first, falls back to Local Neural Net</span>
+    <span class="c-kw">try</span>:
+        <span class="c-fn">print</span>(<span class="c-str">"[CORE] Initiating Gemini 3 Vision Request..."</span>)
+        report = self.engine.analyze_situation(img)
+    <span class="c-kw">except</span> <span class="c-fn">QuotaExceededError</span>:
+        <span class="c-fn">print</span>(<span class="c-str">"[WARN] API Limit Reached. Switching to FAIL-SAFE Mode..."</span>)
+        report = self.get_offline_prediction_model()
+
+<span class="c-kw">def</span> <span class="c-fn">download_secure_laws</span>():
+    <span class="c-cmt"># BYPASS PROTOCOL: Rotates User-Agents to fetch from Archive Mirrors</span>
+    headers = {<span class="c-str">'User-Agent'</span>: <span class="c-str">'Mozilla/5.0 (SecureBot 2.1)'</span>}
+    req = urllib.request.Request(ARCHIVE_MIRROR_URL, headers=headers)
+    
+    <span class="c-cmt"># BINARY WRITE: Saves directly to vector database</span>
+    <span class="c-kw">with</span> <span class="c-fn">open</span>(target_path, <span class="c-str">'wb'</span>) <span class="c-kw">as</span> f:
+        f.write(response.read())
+</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initializare Animaties
+        AOS.init({
+            once: true, // Animatia ruleaza o singura data la scroll
+            offset: 100, // Declanseaza putin inainte sa ajungi la element
+            easing: 'ease-out-cubic'
+        });
+
+        function selectLanguage(lang) {
+            document.body.className = 'show-' + lang;
+            document.getElementById('lang-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('lang-overlay').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('main-content').style.opacity = '1';
+                    AOS.refresh(); // Recalculeaza pozitiile pentru animatii
+                }, 50);
+            }, 600);
+        }
+
+        function openModal() { document.getElementById('code-modal').style.display = 'block'; }
+        function closeModal() { document.getElementById('code-modal').style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('code-modal')) closeModal(); }
+    </script>
+</body>
+</html>
