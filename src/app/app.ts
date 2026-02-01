@@ -214,10 +214,10 @@ elif logistics.delay > 15_mins:
       file: 'assets/GCPcertificate.pdf'
     },
     {
-      title: 'Intro to Pharmacovigilance & Drug Safety',
-      subtitle: 'Drug Safety Monitoring',
-      issuer: 'UBB Cluj-Napoca',
-      date: '2023',
+      title: 'Introduction to Drug Safety and Pharmacovigilance',
+      subtitle: 'An Abridged Course',
+      issuer: 'Biopharma Institute',
+      date: '2026',
       file: 'assets/Biopharmacertificate.pdf'
     },
     {
