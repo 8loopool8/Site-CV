@@ -32,7 +32,7 @@ export class App {
   rStatsSectionDesc_en = 'Development of automated pipelines for Advanced Biostatistics. Includes survival analysis (Kaplan-Meier) for oncology studies and automated validation algorithms for qPCR data, ensuring traceability and data integrity per GxP standards.';
 
   skills = [
-    { category: 'Data Science', items: ['R Programming (Expert)', 'SAS', 'Clinical Data', 'Python (Pandas)', 'SQL'] },
+    { category: 'Data Science', items: ['R Programming (Expert)', 'SAS', 'MedDRA', 'SDTM', 'ADaM', 'Clinical Data', 'Python (Pandas)', 'SQL'] },
     { category: 'R&D & Molecular', items: ['qPCR', 'HPLC', 'Gas Chromatography (GC)', 'Primer Design', 'IVDR Validation'] },
     { category: 'Quality Engineering', items: ['ALCOA+ Principles', 'ISO 13485', 'GMP / GCP', 'SOP Management', 'CAPA'] },
     { category: 'Business & Sales', items: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'] },
@@ -200,22 +200,32 @@ elif logistics.delay > 15_mins:
 
   certifications = [
     {
+      title: 'Inspector SSM',
+      subtitle: 'Health & Safety Inspector',
+      issuer: 'Ministry of Labour / Authorized Provider',
+      date: '2024',
+      file: 'assets/SSM_Certificate.pdf'
+    },
+    {
       title: 'Good Clinical Practice (GCP)',
+      subtitle: 'Clinical Trials Standards',
       issuer: 'NIDA Clinical Trials Network',
       date: '2025',
       file: 'assets/GCPcertificate.pdf'
     },
     {
-      title: 'SDTM & Clinical Data Standards',
-      issuer: 'Pharma Standards Academy',
-      date: '2026',
-      file: 'assets/SDTMCertificate.pdf'
-    },
-    {
-      title: 'Biopharma & Industrial Biotechnology',
+      title: 'Intro to Pharmacovigilance & Drug Safety',
+      subtitle: 'Drug Safety Monitoring',
       issuer: 'UBB Cluj-Napoca',
       date: '2023',
       file: 'assets/Biopharmacertificate.pdf'
+    },
+    {
+      title: 'SDTM & Clinical Data Standards',
+      subtitle: 'Data Interchange Standards',
+      issuer: 'Pharma Standards Academy',
+      date: '2026',
+      file: 'assets/SDTMCertificate.pdf'
     }
   ];
 
