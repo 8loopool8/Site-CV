@@ -1,8 +1,8 @@
 <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-xl border-b border-white/10 h-24 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-full">
     <div class="flex items-center gap-4 group cursor-pointer">
-      <div class="w-14 h-14 bg-[#ffd600] rounded-full border-2 border-white overflow-hidden flex-shrink-0 shadow-[0_0_20px_rgba(255,214,0,0.6)]">
-        <img src="assets/Logo.png" class="w-full h-full object-contain scale-150" alt="Logo">
+      <div class="nav-logo-wrapper bg-[#ffd600] rounded-full border-2 border-white shadow-[0_0_20px_rgba(255,214,0,0.6)]" style="width: 56px; height: 56px; overflow: hidden;">
+        <img src="assets/Logo.png" class="nav-logo-img" alt="Aiudit Logo" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
       <div class="flex flex-col">
         <span class="text-2xl font-black text-white leading-none tracking-tight">AIUDIT</span>
@@ -22,7 +22,7 @@
 </nav>
 
 <div class="relative pt-48 pb-24 text-center px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center bg-[#050505]">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#00e5ff]/10 rounded-full blur-[180px] pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#00e5ff]/10 rounded-full blur-[180px] pointer-events-none" style="max-width: 100vw; max-height: 100vh;"></div>
   <h1 class="relative z-10 text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 tracking-tighter uppercase drop-shadow-[0_0_40px_rgba(0,229,255,0.3)]">
     AIUDIT <span class="text-[#00e5ff] drop-shadow-[0_0_30px_rgba(0,229,255,0.8)]">SOLUTIONS</span>
   </h1>
@@ -37,7 +37,7 @@
 
 <div id="r-stats" class="py-32 bg-[#080808] border-y border-white/5">
   <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-4xl font-black text-white text-center mb-24 uppercase tracking-widest flex items-center justify-center gap-4">
+    <h2 class="text-4xl font-black text-white text-center mb-24 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
       <span class="h-px w-16 bg-[#00e5ff]"></span> R & Biostatistics <span class="h-px w-16 bg-[#00e5ff]"></span>
     </h2>
     <div class="space-y-32">
@@ -83,14 +83,20 @@
 
 <div class="py-32 bg-black relative">
   <div class="max-w-6xl mx-auto px-4">
-    <div class="flex items-center justify-between mb-16">
-      <h2 class="text-3xl font-bold text-white uppercase tracking-tighter">Interactive Dashboard <span class="text-[#00e5ff] italic">Real-Time</span></h2>
-      <span class="bg-green-500/10 text-green-500 px-4 py-2 rounded-full text-[10px] font-black border border-green-500/20 uppercase animate-pulse">● Live Engine</span>
+    <div class="flex items-center justify-between mb-12 flex-wrap gap-4">
+      <h2 class="text-3xl font-bold text-white uppercase tracking-tighter">Interactive Dashboard <span class="text-[#00e5ff] italic font-normal">(R-Shiny Concept)</span></h2>
+      <span class="bg-green-500/10 text-green-500 px-4 py-2 rounded-full text-[10px] font-black border border-green-500/20 uppercase animate-pulse">● Live Simulation</span>
     </div>
     <div class="bg-[#0a0a0a] rounded-3xl border border-white/10 overflow-hidden shadow-2xl flex flex-col md:flex-row h-[500px] backdrop-blur-sm">
       <div class="w-full md:w-72 bg-black/80 border-r border-white/10 p-8 flex flex-col gap-10">
         <div class="space-y-4">
-          <label class="text-[10px] text-gray-500 uppercase font-black block">Variable Filtering</label>
+          <label class="text-[10px] text-gray-500 uppercase font-black block">SELECT METRIC</label>
+          <select class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-[#00e5ff] outline-none">
+            <option value="ae">Adverse Events (AE)</option>
+          </select>
+        </div>
+        <div class="space-y-4">
+          <label class="text-[10px] text-gray-500 uppercase font-black block">CT THRESHOLD</label>
           <div class="p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
             <p class="text-[11px] text-gray-400 mb-4">Exclude subjects &lt; {{ageThreshold}} years old</p>
             <input type="range" min="18" max="70" [(ngModel)]="ageThreshold" (input)="updateDashboard()" class="w-full accent-[#00e5ff]">
@@ -101,15 +107,19 @@
         </button>
       </div>
       <div class="flex-1 p-12 flex flex-col">
-        <h3 class="text-white font-bold text-sm uppercase tracking-widest border-l-4 border-[#00e5ff] pl-4 mb-10">Mean AE Score Comparison</h3>
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest border-l-4 border-[#00e5ff] pl-4 mb-10">Real-Time Analysis View</h3>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          <span class="text-[10px] text-gray-500 font-mono">Data Streaming...</span>
+        </div>
         <div class="flex-1 bg-black/40 rounded-xl border border-white/5 relative flex items-end justify-around px-20 pb-10 gap-10">
           <div class="w-1/3 bg-blue-500/50 border-t-2 border-blue-500 rounded-t transition-all duration-700 relative" [style.height.%]="chartHeights[0]">
             <span class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm text-white font-mono font-bold">{{chartLabels[0]}}</span>
             <span class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] text-white/30 uppercase font-black">Placebo</span>
           </div>
-          <div class="w-1/3 bg-[#ffd600]/50 border-t-2 border-[#ffd600] rounded-t transition-all duration-700 relative" [style.height.%]="chartHeights[1]">
+          <div class="w-1/3 bg-blue-500/50 border-t-2 border-blue-500 rounded-t transition-all duration-700 relative" [style.height.%]="chartHeights[1]">
             <span class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm text-white font-mono font-bold">{{chartLabels[1]}}</span>
-            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] text-black/50 uppercase font-black">Drug-X</span>
+            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] text-white/30 uppercase font-black">Drug-X</span>
           </div>
         </div>
       </div>
@@ -124,8 +134,8 @@
       <div *ngFor="let proj of projects" (click)="openProject(proj)" class="group bg-[#0a0a0a]/90 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-[#00e5ff] hover:shadow-[0_0_40px_rgba(0,229,255,0.1)] transition-all duration-500 cursor-pointer flex flex-col h-full shadow-2xl">
         <div class="h-64 overflow-hidden relative border-b border-white/5">
           <img [src]="proj.image" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="{{ proj.title }}">
-          <div class="absolute top-5 left-5 z-20 h-16 w-16 bg-[#ffd600] rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,214,0,0.5)]">
-            <img [src]="proj.logo" class="w-full h-full object-contain scale-150" alt="Logo">
+          <div class="absolute top-5 left-5 z-20 h-16 w-16 rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,214,0,0.5)]" style="width: 64px; height: 64px; background-color: #ffd600;">
+            <img [src]="proj.logo" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <span class="absolute top-5 right-5 z-20 bg-black/90 backdrop-blur-sm text-[#ffd600] border border-[#ffd600]/50 text-[10px] font-black px-4 py-2 rounded-full uppercase">{{ proj.badge }}</span>
         </div>
@@ -213,8 +223,8 @@
   <div class="bg-[#0a0a0a] w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[#00e5ff]/30 shadow-[0_0_80px_rgba(0,229,255,0.15)] p-0" (click)="$event.stopPropagation()">
     <div class="bg-gray-900/80 backdrop-blur-xl p-8 border-b border-white/10 flex justify-between items-center sticky top-0 z-10">
       <div class="flex items-center gap-6">
-        <div class="h-16 w-16 bg-[#ffd600] rounded-full border-2 border-white p-1 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,214,0,0.5)]">
-          <img [src]="activeProject.logo || 'assets/Logo.png'" class="w-full h-full object-contain scale-150" alt="Logo">
+        <div class="h-16 w-16 rounded-full border-2 border-white p-1 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,214,0,0.5)]" style="width: 64px; height: 64px; background-color: #ffd600;">
+          <img [src]="activeProject.logo || 'assets/Logo.png'" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
         <div>
           <h2 class="text-3xl font-black text-white mb-1 uppercase">{{ activeProject.title ? activeProject.title : (currentLang === 'ro' ? activeProject.role_ro : activeProject.role_en) }}</h2>

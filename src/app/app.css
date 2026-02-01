@@ -1,0 +1,20 @@
+/* CRITICAL: Logo overflow fix - works even when Tailwind fails */
+.nav-logo-wrapper {
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
+  min-height: 56px !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+}

@@ -39,7 +39,7 @@ export class App {
   chartHeights: number[] = [20, 20];
   chartLabels: string[] = ['20', '20'];
   downloadText_ro: string = "GENEREAZĂ RAPORT PDF";
-  downloadText_en: string = "GENERATE PDF REPORT";
+  downloadText_en: string = "DOWNLOAD REPORT";
   isProcessing: boolean = false;
 
   constructor() { this.updateDashboard(); }
@@ -64,7 +64,7 @@ export class App {
       this.downloadText_en = "REPORT READY ✅";
       setTimeout(() => {
         this.downloadText_ro = "GENEREAZĂ RAPORT PDF";
-        this.downloadText_en = "GENERATE PDF REPORT";
+        this.downloadText_en = "DOWNLOAD REPORT";
         this.isProcessing = false;
       }, 2000);
     }, 1500);
