@@ -25,6 +25,12 @@ export class App {
   bio_ro = 'Sunt un specialist în Științele Vieții care a decis să nu mai aleagă între eprubetă și codul sursă. Cu un background solid în Biologie Moleculară (PCR) și un Master în Biostatistică, integrez rigoarea farmaceutică (Quality Engineering) cu inovația Generative AI.';
   bio_en = 'I am a Life Sciences specialist who decided to stop choosing between the test tube and the source code. With a solid background in Molecular Biology (PCR) and a Master in Biostatistics, I integrate pharmaceutical rigor (Quality Engineering) with Generative AI innovation.';
 
+  skillsSectionTitle_ro = 'Cei 5 Stâlpi Strategici';
+  skillsSectionTitle_en = 'The 5 Strategic Pillars';
+
+  rStatsSectionDesc_ro = 'Dezvoltarea de pipeline-uri automate pentru Biostatistică Avansată. Include analiza de supraviețuire (Kaplan-Meier) pentru studii oncologice și algoritmi de validare automată pentru datele qPCR, asigurând trasabilitatea și integritatea datelor conform standardelor GxP.';
+  rStatsSectionDesc_en = 'Development of automated pipelines for Advanced Biostatistics. Includes survival analysis (Kaplan-Meier) for oncology studies and automated validation algorithms for qPCR data, ensuring traceability and data integrity per GxP standards.';
+
   skills = [
     { category: 'Data Science', items: ['R Programming (Expert)', 'SAS', 'Clinical Data', 'Python (Pandas)', 'SQL'] },
     { category: 'R&D & Molecular', items: ['qPCR', 'HPLC', 'Gas Chromatography (GC)', 'Primer Design', 'IVDR Validation'] },
@@ -39,8 +45,8 @@ export class App {
       name: 'Aiudit',
       tagline_ro: 'Auditor Digital Cognitiv cu Verificare în Cascadă',
       tagline_en: 'Deep-Check Cognitive Auditor with Cascade Verification',
-      desc_ro: 'Nu doar scanezi documente, le supui unui stres-test digital. Sistemul Deep-Check (Multi-Agent Verification) garantează starea de "Audit-Ready" în Pharma și Medical. Gândire transparentă (Chain-of-Thought) care citează exact legea încălcată.',
-      desc_en: 'You do not just scan documents; you digital stress-test them. The Deep-Check system (Multi-Agent Verification) guarantees "Audit-Ready" status in Pharma and Medical. Transparent Chain-of-Thought reasoning that cites the exact violated law.',
+      desc_ro: 'Auditor Digital bazat pe arhitectură RAG și DeepSeek-R1. Automatizează verificarea documentației clinice prin "Deep-Check Cascading", reducând riscul de neconformitate și optimizând pregătirea pentru audituri.',
+      desc_en: 'Digital Auditor based on RAG architecture and DeepSeek-R1. Automates verification of clinical documentation through Deep-Check Cascading, reducing non-compliance risk and optimizing audit readiness.',
       features: ['Chain-of-Thought Reasoning', 'Local Docker Privacy', 'Legislative Mapping (ISO/GCP)'],
       codeSnippet: `> Initiating Deep-Check...
 > Agent 1 (Syntax): OK
@@ -56,8 +62,8 @@ export class App {
       name: 'Guardian Aingel',
       tagline_ro: 'SSM Vision & Logistică Predictivă',
       tagline_en: 'HSE Vision & Predictive Logistics',
-      desc_ro: 'Sistem proactiv care previne accidentele și întârzierile înainte să apară. Identifică lipsa EIP prin Computer Vision și recalculează fluxul logistic în timp real dacă apar blocaje, evitând pierderile operaționale.',
-      desc_en: 'Proactive system preventing accidents and delays before they occur. Identifies missing PPE via Computer Vision and recalculates logistics flow in real-time if site blockages are detected, avoiding operational losses.',
+      desc_ro: 'Sistem de Computer Vision pentru siguranța industrială (HSE) și logistică. Monitorizează purtarea EIP și fluxurile operaționale în timp real, prevenind incidentele prin analiză predictivă.',
+      desc_en: 'Computer Vision system for industrial safety (HSE) and logistics. Monitors PPE compliance and operational flows in real time, preventing incidents through predictive analysis.',
       features: ['YOLOv8 Object Detection', 'Predictive Logistics', 'Real-Time Alerts'],
       codeSnippet: `if detection.class == "no_helmet":
   alert_level = "CRITICAL"
@@ -190,7 +196,7 @@ elif logistics.delay > 15_mins:
     { title_ro: 'Breathing Chemicals: Air Pollution Review', title_en: 'Breathing Chemicals: Air Pollution Review', type_ro: 'Publicat (2022)', type_en: 'Published (2022)' },
     { title_ro: 'Poluarea microbială în Râul Mureș', title_en: 'Microbial pollution in Mureș River', type_ro: 'Cercetare Academică', type_en: 'Academic Research' },
     { title_ro: 'Potențialul genetic al bacteriilor din apele subterane', title_en: 'Genetic potential of groundwater bacteria', type_ro: 'Teză (10/10)', type_en: 'Thesis (10/10)' }
-  ];
+    ];
 
   setLang(lang: 'ro' | 'en') {
     this.currentLang = lang;
