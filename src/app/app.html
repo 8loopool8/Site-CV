@@ -74,12 +74,9 @@
             <h3 class="text-xl md:text-2xl font-black text-white uppercase">{{ sw.name }}</h3>
           </div>
         </div>
-        <p class="text-gray-400 text-sm leading-relaxed font-light mb-4">{{ currentLang === 'ro' ? sw.subheadline_ro : sw.subheadline_en }}</p>
-        <p class="text-gray-500 text-xs leading-relaxed mb-6">{{ currentLang === 'ro' ? sw.description_ro : sw.description_en }}</p>
+        <p class="text-gray-400 text-sm leading-relaxed font-light mb-6">{{ sw.description }}</p>
         <div class="flex flex-wrap gap-2 mb-6">
-          <span *ngFor="let f of sw.features" class="px-3 py-1.5 rounded-full text-[9px] font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">
-            <span class="text-[#ffd600]">{{ f.title }}:</span> {{ currentLang === 'ro' ? f.desc_ro : f.desc_en }}
-          </span>
+          <span *ngFor="let f of sw.features" class="px-3 py-1.5 rounded-full text-[9px] font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">{{ f }}</span>
         </div>
         <div class="bg-black rounded-xl border border-[#00e5ff]/30 overflow-hidden mt-auto">
           <div class="bg-[#0a0a0a] px-4 py-2 border-b border-[#00e5ff]/20 flex gap-2">
@@ -204,8 +201,8 @@
       </h3>
       <div class="space-y-6">
         <div *ngFor="let lead of leadership" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#00e5ff]/50 transition-all duration-500">
-          <div class="font-black text-lg text-white mb-2">{{ currentLang === 'ro' ? lead.title_ro : lead.title_en }}</div>
-          <div class="text-sm text-gray-400 font-light leading-relaxed">{{ currentLang === 'ro' ? lead.desc_ro : lead.desc_en }}</div>
+          <div class="font-black text-lg text-white mb-2">{{ lead.title }} <span class="text-[#ffd600] font-normal">({{ lead.role }})</span></div>
+          <div class="text-sm text-gray-400 font-light leading-relaxed">{{ lead.desc }}</div>
         </div>
       </div>
     </div>

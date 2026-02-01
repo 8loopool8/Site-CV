@@ -33,7 +33,7 @@ export class App {
 
   skills = [
     { category: 'Biostatistics & Data', items: ['R Programming', 'SAS', 'Jamovi', 'Python (Pandas)', 'SQL'] },
-    { category: 'R&D & Molecular', items: ['qPCR', 'Primer Design', 'IVDR Validation', 'Microscopy', 'Cell Cultures'] },
+    { category: 'R&D & Molecular', items: ['qPCR', 'Primer Design', 'HPLC', 'Gas Chromatography (GC)', 'IVDR Validation'] },
     { category: 'Quality Engineering', items: ['ALCOA+ Principles', 'ISO 13485', 'GMP / GCP', 'SOP Management', 'CAPA'] },
     { category: 'Business & Sales', items: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'] },
     { category: 'Full-Stack & AI', items: ['Angular', 'TailwindCSS', 'Docker', 'REST API', 'LLM Integration (RAG)'] }
@@ -43,18 +43,9 @@ export class App {
     {
       id: 'aiudit',
       name: 'Aiudit',
-      tagline: 'Deep-Check Cognitive Auditor',
-      headline_ro: 'Aiudit – Primul Auditor Digital cu Inteligență de Verificare în Cascadă',
-      headline_en: 'Aiudit – The First Digital Auditor with Cascade Verification Intelligence',
-      subheadline_ro: 'Nu doar scanezi documente, le supui unui stres-test digital. Garanția "Audit-Ready" pentru Pharma & Clinical.',
-      subheadline_en: 'You don\'t just scan documents, you subject them to a digital stress test. "Audit-Ready" guarantee for Pharma & Clinical.',
-      description_ro: 'Sistem de audit digital bazat pe RAG și Chain-of-Thought. Verifică documentația în cascadă pentru conformitate Pharma.',
-      description_en: 'Digital audit system based on RAG and Chain-of-Thought. Verifies documentation in cascade for Pharma compliance.',
-      features: [
-        { title: 'Deep-Check', desc_ro: '10x Multi-Agent Verification (No Hallucinations)', desc_en: '10x Multi-Agent Verification (No Hallucinations)' },
-        { title: 'Chain-of-Thought', desc_ro: 'Explains logic & Cites Laws (GCP/SSM)', desc_en: 'Explains logic & Cites Laws (GCP/SSM)' },
-        { title: 'Privacy', desc_ro: 'Local Docker Execution (Data never leaves the building)', desc_en: 'Local Docker Execution (Data never leaves the building)' }
-      ],
+      tagline: 'Primul Auditor Digital cu Inteligență de Verificare în Cascadă',
+      description: 'Nu doar scanezi documente, le supui unui stres-test digital. Sistemul Deep-Check (10x Multi-Agent Verification) garantează starea de "Audit-Ready". Gândire transparentă (Chain-of-Thought) care citează exact legea încălcată.',
+      features: ['Chain-of-Thought Reasoning', 'Local Docker Privacy', 'Legislative Mapping (ISO/GCP)'],
       codeSnippet: `> Initiating Deep-Check...
 > Agent 1 (Syntax): OK
 > Agent 2 (Compliance): ERROR found in Section 4.2
@@ -62,24 +53,14 @@ export class App {
 > Reference: Law 95/2006, Art 14.
 > RISK SCORE: HIGH (Audit Failure likely).`,
       tech: ['DeepSeek-R1', 'Python', 'Vector DB', 'Angular'],
-      image: 'assets/dashboard_ui.png',
       logo: 'assets/Logo.png'
     },
     {
       id: 'guardian',
       name: 'Guardian Aingel',
-      tagline: 'SSM Vision & Logistics',
-      headline_ro: 'Guardian Aingel – Computer Vision & Predictive Logistics',
-      headline_en: 'Guardian Aingel – Computer Vision & Predictive Logistics',
-      subheadline_ro: 'Sistem proactiv de securitate (SSM) și optimizare logistică. Previne accidentele și întârzierile înainte să apară.',
-      subheadline_en: 'Proactive safety (HSE) and logistics optimization system. Prevents accidents and delays before they occur.',
-      description_ro: 'Computer Vision pentru detectare EIP lipsă și predicție logistică. Optimizează fluxul livrărilor în timp real.',
-      description_en: 'Computer Vision for missing PPE detection and logistics prediction. Optimizes delivery flow in real time.',
-      features: [
-        { title: 'HSE/SSM', desc_ro: 'Detectează lipsa EIP (căști, vestă) instant.', desc_en: 'Detects missing PPE (Helmets, Vests) instantly.' },
-        { title: 'Logistics', desc_ro: 'Prezice întârzieri și sugerează reprogramare comenzilor.', desc_en: 'Predicts supply chain delays and suggests order rescheduling.' },
-        { title: 'Real-Time', desc_ro: 'Procesare 30ms pe dispozitive Edge.', desc_en: '30ms latency processing on Edge Devices.' }
-      ],
+      tagline: 'SSM Vision & Predictive Logistics',
+      description: 'Sistem proactiv care previne accidentele și întârzierile înainte să apară. Identifică lipsa EIP prin Computer Vision și recalculează fluxul logistic în timp real dacă apar blocaje pe șantier.',
+      features: ['YOLOv8 Object Detection', 'Predictive Logistics', 'Real-Time Alerts'],
       codeSnippet: `if detection.class == "no_helmet":
   alert_level = "CRITICAL"
   fine_risk = "5000 RON"
@@ -88,7 +69,6 @@ elif logistics.delay > 15_mins:
   schedule.reoptimize(target="Concrete_Pouring")
   notify_manager("Delay predicted. Shift orders.")`,
       tech: ['OpenCV', 'YOLO', 'TensorFlow', 'IoT Edge'],
-      image: 'assets/dashboard_ui.png',
       logo: 'assets/LogoGuardianAingel.png'
     }
   ];
@@ -141,7 +121,13 @@ elif logistics.delay > 15_mins:
       role: 'Customer Exp. Manager',
       company: 'Tărâmul Elfilor',
       period: '2015 - 2020',
-      desc: 'Managed daily operations and team coordination. Orchestrated immersive pedagogical scenarios based on child psychology.'
+      desc: 'Managed daily operations. Orchestrated immersive pedagogical scenarios based on child psychology. Engineered childhood memories.'
+    },
+    {
+      role: 'Customer Support Specialist',
+      company: 'BT / Regina Maria / CGS',
+      period: 'Collective Exp.',
+      desc: 'Banking, Healthcare & Telecom expertise. High-performance KPI management (AHT, CSAT) and Technical Troubleshooting in English & Romanian.'
     }
   ];
 
@@ -171,23 +157,8 @@ elif logistics.delay > 15_mins:
   ];
 
   leadership = [
-    {
-      title_ro: 'Certificare Engleză C2',
-      title_en: 'English C2 Certification',
-      desc_ro: 'Cambridge Advanced – Liceu Bilingv.',
-      desc_en: 'Cambridge Advanced – Bilingual High School.'
-    },
-    {
-      title_ro: 'Fondator – Club de Dezbateri',
-      title_en: 'Founder – High School Debate Club',
-      desc_ro: 'Public Speaking & Argumentation.',
-      desc_en: 'Public Speaking & Argumentation.'
-    },
-    {
-      title_ro: 'Fondator – Trupă de Teatru',
-      title_en: 'Founder – Theatre Troupe',
-      desc_ro: 'Directing, Scriptwriting, and Stage Presence.',
-      desc_en: 'Directing, Scriptwriting, and Stage Presence.'
-    }
+    { title: "English Theatre Troupe 'Dramatricks'", role: 'Founder', desc: 'Directing, Scriptwriting, and Stage Presence (English).' },
+    { title: 'High School Debate Club', role: 'Founder', desc: 'Public Speaking & Argumentation (English).' },
+    { title: 'English Proficiency', role: 'C2 Certification', desc: 'Cambridge Advanced - Bilingual High School Profile.' }
   ];
 }
