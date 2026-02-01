@@ -98,10 +98,10 @@ export class App {
   projects = [
     {
       title: 'Guardian Aingel', badge: 'Safety Intelligence', image: 'assets/dashboard_ui.png', logo: 'assets/LogoGuardianAingel.png',
-      description_ro: 'Sistem proactiv care previne accidente și amenzi de până la 1.000.000 lei prin Computer Vision.',
-      description_en: 'Proactive system preventing accidents and fines up to 1,000,000 RON using Computer Vision.',
-      full_desc_ro: 'Guardian Aingel nu este doar un "polițist" SSM, ci un scut financiar. Într-o singură săptămână de controale ITM (ian. 2026), amenzile în România pot depăși 3.2 milioane lei. Sistemul meu folosește AI pentru a identifica instant lipsa EIP sau pericolele pe șantier, protejând firma de amenzi individuale între 4.000 și 10.000 lei.\n\nLOGISTICĂ & PREVENȚIE: Dacă betonul nu este turnat la ora stabilită, Guardian recalculează automat fluxul livrărilor, evitând pierderile de productivitate care costă economia 3.3% din PIB anual.',
-      full_desc_en: 'Guardian Aingel is not just an HSE "cop," but a financial shield. In a single week of ITM inspections (Jan 2026), fines in Romania can exceed 3.2M RON. My system uses AI to instantly identify PPE violations or site hazards, protecting the company from individual fines between 4,000 and 10,000 RON.\n\nLOGISTICS & PREVENTION: If concrete isn\'t poured as scheduled, Guardian automatically recalculates delivery flows, avoiding productivity losses that cost the economy 3.3% of GDP annually.',
+      description_ro: 'Sistem proactiv care previne accidente și amenzi prin Computer Vision.',
+      description_en: 'Proactive system preventing accidents and fines using Computer Vision.',
+      full_desc_ro: 'Guardian Aingel nu este doar un "polițist" SSM, ci un scut financiar. Sistemul folosește AI pentru a identifica instant lipsa EIP sau pericolele pe șantier.\n\nLOGISTICĂ & PREVENȚIE: Dacă betonul nu este turnat la ora stabilită, Guardian recalculează automat fluxul livrărilor.',
+      full_desc_en: 'Guardian Aingel is not just an HSE "cop," but a financial shield. The system uses AI to instantly identify PPE violations or site hazards.\n\nLOGISTICS & PREVENTION: If concrete isn\'t poured as scheduled, Guardian automatically recalculates delivery flows.',
       code_files: [{ name: 'hazard_detector.py', code: 'if hazard_detected:\n  alert.send_manager("RISK_OF_FINE", penalty_estimate="10k_RON")' }],
       screenshots: ['assets/dashboard_ui.png', 'assets/ai_report1.png'],
       tech: ['Python', 'OpenCV', 'YOLOv8', 'Docker']
@@ -112,7 +112,7 @@ export class App {
     { role_ro: 'Inginer de Calitate (GXP)', role_en: 'Quality Engineer (GXP)', company: 'Terapia SA', period: '04/2025 - 10/2025', desc_ro: 'SOP Management, GXP, ALCOA+ Data Integrity, investigații CAPA.', desc_en: 'SOP Management, GXP, ALCOA+ Data Integrity, CAPA investigations.' },
     { role_ro: 'Sales & Business Development', role_en: 'Sales & Business Development', company: 'Freelance', period: '2023 - 2025', desc_ro: 'Prospecție intensivă (Cold Calling), management CRM și negociere strategică.', desc_en: 'Intensive prospecting (Cold Calling), CRM management, and strategic negotiation.' },
     { role_ro: 'Fondator & Lead Dev', role_en: 'Founder & Lead Dev', company: 'Aiudit Solutions', period: '2024 - Prezent', desc_ro: 'Arhitectură AI RAG Privacy-First, Dockerizare și soluții de securitate industrială.', desc_en: 'Privacy-First AI RAG architecture, Dockerization, and industrial security solutions.' },
-    { role_ro: 'Customer Exp. Manager', role_en: 'Customer Exp. Manager', company: 'Tărâmul Elfilor', period: '2015 - 2020', desc_ro: 'Recrutare echipe "Elfi", creare povești magice și experiențe educaționale prin psihologia copilului.', desc_en: 'Team recruitment, creating magical stories and educational experiences via child psychology.' }
+    { role_ro: 'Customer Exp. Manager', role_en: 'Customer Exp. Manager', company: 'Tărâmul Elfilor', period: '2015 - 2020', desc_ro: 'Recrutare echipe "Elfi", creare povești magice și experiențe educaționale prin psihologia copilului.', desc_en: 'Recruited "Elves," created magical stories and educational experiences via child psychology.' }
   ];
 
   education = [
