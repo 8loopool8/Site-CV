@@ -28,38 +28,15 @@ export class App {
   heroTitle_ro = 'Hybrid R&D Scientist | AI Systems Architect | Biostatistician';
   heroTitle_en = 'Hybrid R&D Scientist | AI Systems Architect | Biostatistician';
 
-  heroBio_ro = 'Sunt un specialist în Științe ale Vieții care a decis să nu mai aleagă între eprubetă și codul sursă. Cu un background solid în Biologie Moleculară (PCR/NGS) și un Master în Biostatistică, integrez rigoarea farmaceutică (Quality Engineering) cu inovația Generative AI. Dezvolt soluții precum Aiudit Safety, transformând conformitatea legală în sisteme autonome.';
-  heroBio_en = 'I am a Life Sciences specialist who decided to stop choosing between the test tube and the source code. With a solid background in Molecular Biology (PCR/NGS) and a Master\'s in Biostatistics, I integrate pharmaceutical rigor (Quality Engineering) with Generative AI innovation. I develop solutions like Aiudit Safety, transforming legal compliance into autonomous systems.';
+  heroBio_ro = 'Sunt un specialist în Științele Vieții care a decis să nu mai aleagă între eprubetă și codul sursă. Cu un background solid în Biologie Moleculară (PCR) și un Master în Biostatistică, integrez rigoarea farmaceutică (Quality Engineering) cu inovația Generative AI. Dezvolt soluții precum Aiudit Safety, transformând conformitatea legală în sisteme autonome.';
+  heroBio_en = 'I am a Life Sciences specialist who decided to stop choosing between the test tube and the source code. With a solid background in Molecular Biology (PCR) and a Master\'s in Biostatistics, I integrate pharmaceutical rigor (Quality Engineering) with Generative AI innovation. I develop solutions like Aiudit Safety, transforming legal compliance into autonomous systems.';
 
   skills = [
-    {
-      category_ro: 'Data Science & Statistical Programming',
-      category_en: 'Data Science & Statistical Programming',
-      keywords: ['R (Expert)', 'SAS', 'Clinical Data', 'Python'],
-      desc_ro: 'Transpunerea modelelor statistice complexe în insights de business pentru studii clinice și cercetare de mediu.',
-      desc_en: 'Translating complex statistical models into business insights for clinical trials and environmental research.'
-    },
-    {
-      category_ro: 'R&D & Molecular Diagnostics',
-      category_en: 'R&D & Molecular Diagnostics',
-      keywords: ['qPCR', 'Primer Design', 'Validare IVDR', 'NGS'],
-      desc_ro: 'Dezvoltarea și optimizarea protocoalelor de detecție moleculară cu accent pe sensibilitate și specificitate analitică.',
-      desc_en: 'Development and optimization of molecular detection protocols with emphasis on analytical sensitivity and specificity.'
-    },
-    {
-      category_ro: 'Quality Engineering & Regulatory',
-      category_en: 'Quality Engineering & Regulatory',
-      keywords: ['ALCOA+', 'ISO 13485', 'GMP/GCP', 'Data Integrity'],
-      desc_ro: 'Implementarea standardelor de integritate a datelor și managementul riscului într-un mediu de producție farma reglementat.',
-      desc_en: 'Implementation of data integrity standards and risk management in a regulated pharma production environment.'
-    },
-    {
-      category_ro: 'Business Development & Client Relations',
-      category_en: 'Business Development & Client Relations',
-      keywords: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'],
-      desc_ro: 'Experiență în vânzări B2B și gestionarea relațiilor cu clienții. Abilități de negociere și comunicare dobândite în medii competitive.',
-      desc_en: 'Experience in B2B sales and client relationship management. Negotiation and communication skills acquired in competitive environments.'
-    }
+    { category: 'Biostatistics & Data', items: ['R Programming', 'SAS', 'Jamovi', 'Python (Pandas)', 'SQL'] },
+    { category: 'R&D & Molecular', items: ['qPCR', 'Primer Design', 'IVDR Validation', 'Microscopy', 'Cell Cultures'] },
+    { category: 'Quality Engineering', items: ['ALCOA+ Principles', 'ISO 13485', 'GMP / GCP', 'SOP Management', 'CAPA'] },
+    { category: 'Business & Sales', items: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'] },
+    { category: 'Full-Stack & AI', items: ['Angular', 'TailwindCSS', 'Docker', 'REST API', 'LLM Integration (RAG)'] }
   ];
 
   softwareProjects = [
@@ -71,8 +48,8 @@ export class App {
       headline_en: 'Aiudit – The First Digital Auditor with Cascade Verification Intelligence',
       subheadline_ro: 'Nu doar scanezi documente, le supui unui stres-test digital. Garanția "Audit-Ready" pentru Pharma & Clinical.',
       subheadline_en: 'You don\'t just scan documents, you subject them to a digital stress test. "Audit-Ready" guarantee for Pharma & Clinical.',
-      description_ro: 'Sistem de audit digital bazat pe Agentic AI și RAG. Verifică documentația în cascadă (Ensemble Voting) pentru a garanta starea de "Audit-Ready" în sectoare reglementate (Pharma, Medical).',
-      description_en: 'Digital audit system based on Agentic AI and RAG. Verifies documentation in cascade (Ensemble Voting) to guarantee "Audit-Ready" status in regulated sectors (Pharma, Medical).',
+      description_ro: 'Sistem de audit digital bazat pe RAG și Chain-of-Thought. Verifică documentația în cascadă pentru conformitate Pharma.',
+      description_en: 'Digital audit system based on RAG and Chain-of-Thought. Verifies documentation in cascade for Pharma compliance.',
       features: [
         { title: 'Deep-Check', desc_ro: '10x Multi-Agent Verification (No Hallucinations)', desc_en: '10x Multi-Agent Verification (No Hallucinations)' },
         { title: 'Chain-of-Thought', desc_ro: 'Explains logic & Cites Laws (GCP/SSM)', desc_en: 'Explains logic & Cites Laws (GCP/SSM)' },
@@ -91,13 +68,13 @@ export class App {
     {
       id: 'guardian',
       name: 'Guardian Aingel',
-      tagline: 'SSM Vision & Logistics Optimizer',
+      tagline: 'SSM Vision & Logistics',
       headline_ro: 'Guardian Aingel – Computer Vision & Predictive Logistics',
       headline_en: 'Guardian Aingel – Computer Vision & Predictive Logistics',
       subheadline_ro: 'Sistem proactiv de securitate (SSM) și optimizare logistică. Previne accidentele și întârzierile înainte să apară.',
       subheadline_en: 'Proactive safety (HSE) and logistics optimization system. Prevents accidents and delays before they occur.',
-      description_ro: 'Nu este doar un "polițist" SSM, ci un scut logistic. Identifică lipsa echipamentului de protecție și recalculează fluxul livrărilor dacă betonul nu este turnat la timp, evitând pierderile operaționale.',
-      description_en: 'It is not just an HSE "cop," but a logistics shield. Identifies missing PPE and recalculates delivery flow if concrete is not poured on time, avoiding operational losses.',
+      description_ro: 'Computer Vision pentru detectare EIP lipsă și predicție logistică. Optimizează fluxul livrărilor în timp real.',
+      description_en: 'Computer Vision for missing PPE detection and logistics prediction. Optimizes delivery flow in real time.',
       features: [
         { title: 'HSE/SSM', desc_ro: 'Detectează lipsa EIP (căști, vestă) instant.', desc_en: 'Detects missing PPE (Helmets, Vests) instantly.' },
         { title: 'Logistics', desc_ro: 'Prezice întârzieri și sugerează reprogramare comenzilor.', desc_en: 'Predicts supply chain delays and suggests order rescheduling.' },
@@ -147,6 +124,27 @@ elif logistics.delay > 15_mins:
     }
   ];
 
+  experience = [
+    {
+      role: 'Quality Engineer (GXP)',
+      company: 'Terapia SA',
+      period: '04/2025 - 10/2025',
+      desc: 'Guardian of Data Integrity. Managed SOPs and ensured strict adherence to GLP/GCP standards. Conducted CAPA investigations.'
+    },
+    {
+      role: 'Sales & Business Development',
+      company: 'Freelance',
+      period: '2023 - 2025',
+      desc: 'High-volume prospecting and CRM management. Developed B2B negotiation strategies.'
+    },
+    {
+      role: 'Customer Exp. Manager',
+      company: 'Tărâmul Elfilor',
+      period: '2015 - 2020',
+      desc: 'Managed daily operations and team coordination. Orchestrated immersive pedagogical scenarios based on child psychology.'
+    }
+  ];
+
   education = [
     {
       degree_ro: 'Master Biostatistică și Bioinformatică',
@@ -164,6 +162,12 @@ elif logistics.delay > 15_mins:
       details_ro: 'Specializare: Industrie Alimentară, Farmacie, Protecția Mediului, Chimie Analitică, Microbiologie. Teză: 10/10.',
       details_en: 'Specialization: Food Industry, Pharma, Environmental Protection, Analytical Chemistry, Microbiology. Thesis: 10/10.'
     }
+  ];
+
+  articles = [
+    { title: 'Breathing Chemicals: Air Pollution Review', type: 'Published (2022)' },
+    { title: 'Microbial pollution in Mureș River', type: 'Academic Research' },
+    { title: 'Genetic potential of groundwater bacteria', type: 'Thesis (10/10)' }
   ];
 
   leadership = [
