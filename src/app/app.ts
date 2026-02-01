@@ -19,21 +19,15 @@ export class App {
     github: 'https://github.com/8loopool8'
   };
 
-  activeProject: any = null;
-
-  setLang(lang: 'ro' | 'en') { this.currentLang = lang; }
-  openProject(project: any) { this.activeProject = project; }
-  closeProject() { this.activeProject = null; }
-
   heroTitle_ro = 'Hybrid R&D Scientist | AI Systems Architect | Biostatistician';
   heroTitle_en = 'Hybrid R&D Scientist | AI Systems Architect | Biostatistician';
 
-  heroBio_ro = 'Sunt un specialist în Științele Vieții care a decis să nu mai aleagă între eprubetă și codul sursă. Cu un background solid în Biologie Moleculară (PCR) și un Master în Biostatistică, integrez rigoarea farmaceutică (Quality Engineering) cu inovația Generative AI. Dezvolt soluții precum Aiudit Safety, transformând conformitatea legală în sisteme autonome.';
-  heroBio_en = 'I am a Life Sciences specialist who decided to stop choosing between the test tube and the source code. With a solid background in Molecular Biology (PCR) and a Master\'s in Biostatistics, I integrate pharmaceutical rigor (Quality Engineering) with Generative AI innovation. I develop solutions like Aiudit Safety, transforming legal compliance into autonomous systems.';
+  bio_ro = 'Sunt un specialist în Științele Vieții care a decis să nu mai aleagă între eprubetă și codul sursă. Cu un background solid în Biologie Moleculară (PCR) și un Master în Biostatistică, integrez rigoarea farmaceutică (Quality Engineering) cu inovația Generative AI.';
+  bio_en = 'I am a Life Sciences specialist who decided to stop choosing between the test tube and the source code. With a solid background in Molecular Biology (PCR) and a Master in Biostatistics, I integrate pharmaceutical rigor (Quality Engineering) with Generative AI innovation.';
 
   skills = [
-    { category: 'Biostatistics & Data', items: ['R Programming', 'SAS', 'Jamovi', 'Python (Pandas)', 'SQL'] },
-    { category: 'R&D & Molecular', items: ['qPCR', 'Primer Design', 'HPLC', 'Gas Chromatography (GC)', 'IVDR Validation'] },
+    { category: 'Data Science', items: ['R Programming (Expert)', 'SAS', 'Clinical Data', 'Python (Pandas)', 'SQL'] },
+    { category: 'R&D & Molecular', items: ['qPCR', 'HPLC', 'Gas Chromatography (GC)', 'Primer Design', 'IVDR Validation'] },
     { category: 'Quality Engineering', items: ['ALCOA+ Principles', 'ISO 13485', 'GMP / GCP', 'SOP Management', 'CAPA'] },
     { category: 'Business & Sales', items: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'] },
     { category: 'Full-Stack & AI', items: ['Angular', 'TailwindCSS', 'Docker', 'REST API', 'LLM Integration (RAG)'] }
@@ -43,13 +37,15 @@ export class App {
     {
       id: 'aiudit',
       name: 'Aiudit',
-      tagline: 'Primul Auditor Digital cu Inteligență de Verificare în Cascadă',
-      description: 'Nu doar scanezi documente, le supui unui stres-test digital. Sistemul Deep-Check (10x Multi-Agent Verification) garantează starea de "Audit-Ready". Gândire transparentă (Chain-of-Thought) care citează exact legea încălcată.',
+      tagline_ro: 'Auditor Digital Cognitiv cu Verificare în Cascadă',
+      tagline_en: 'Deep-Check Cognitive Auditor with Cascade Verification',
+      desc_ro: 'Nu doar scanezi documente, le supui unui stres-test digital. Sistemul Deep-Check (Multi-Agent Verification) garantează starea de "Audit-Ready" în Pharma și Medical. Gândire transparentă (Chain-of-Thought) care citează exact legea încălcată.',
+      desc_en: 'You do not just scan documents; you digital stress-test them. The Deep-Check system (Multi-Agent Verification) guarantees "Audit-Ready" status in Pharma and Medical. Transparent Chain-of-Thought reasoning that cites the exact violated law.',
       features: ['Chain-of-Thought Reasoning', 'Local Docker Privacy', 'Legislative Mapping (ISO/GCP)'],
       codeSnippet: `> Initiating Deep-Check...
 > Agent 1 (Syntax): OK
 > Agent 2 (Compliance): ERROR found in Section 4.2
-> Logic: "Semnătura datează dinainte de aprobarea etică."
+> Logic: "Signature predates ethical approval."
 > Reference: Law 95/2006, Art 14.
 > RISK SCORE: HIGH (Audit Failure likely).`,
       tech: ['DeepSeek-R1', 'Python', 'Vector DB', 'Angular'],
@@ -58,8 +54,10 @@ export class App {
     {
       id: 'guardian',
       name: 'Guardian Aingel',
-      tagline: 'SSM Vision & Predictive Logistics',
-      description: 'Sistem proactiv care previne accidentele și întârzierile înainte să apară. Identifică lipsa EIP prin Computer Vision și recalculează fluxul logistic în timp real dacă apar blocaje pe șantier.',
+      tagline_ro: 'SSM Vision & Logistică Predictivă',
+      tagline_en: 'HSE Vision & Predictive Logistics',
+      desc_ro: 'Sistem proactiv care previne accidentele și întârzierile înainte să apară. Identifică lipsa EIP prin Computer Vision și recalculează fluxul logistic în timp real dacă apar blocaje, evitând pierderile operaționale.',
+      desc_en: 'Proactive system preventing accidents and delays before they occur. Identifies missing PPE via Computer Vision and recalculates logistics flow in real-time if site blockages are detected, avoiding operational losses.',
       features: ['YOLOv8 Object Detection', 'Predictive Logistics', 'Real-Time Alerts'],
       codeSnippet: `if detection.class == "no_helmet":
   alert_level = "CRITICAL"
@@ -73,61 +71,99 @@ elif logistics.delay > 15_mins:
     }
   ];
 
+  experience = [
+    {
+      role_ro: 'Quality Engineer (GXP)',
+      role_en: 'Quality Engineer (GXP)',
+      company: 'Terapia SA',
+      period: '04/2025 - 10/2025',
+      desc_ro: 'Gardian al Integrității Datelor. Am gestionat SOP-uri și am asigurat aderența strictă la standardele GLP/GCP. Am condus investigații CAPA și audituri interne.',
+      desc_en: 'Guardian of Data Integrity. Managed SOPs and ensured strict adherence to GLP/GCP standards. Conducted CAPA investigations and internal audits.'
+    },
+    {
+      role_ro: 'Sales & Business Development',
+      role_en: 'Sales & Business Development',
+      company: 'Freelance',
+      period: '2023 - 2025',
+      desc_ro: 'Prospecție intensivă și management CRM. Dezvoltarea strategiilor de negociere B2B pentru închiderea contractelor cu volum mare.',
+      desc_en: 'High-volume prospecting and CRM management. Developed B2B negotiation strategies to close high-value contracts.'
+    },
+    {
+      role_ro: 'Customer Exp. Manager',
+      role_en: 'Customer Exp. Manager',
+      company: 'Tărâmul Elfilor',
+      period: '2015 - 2020',
+      desc_ro: 'Management operațional și coordonarea echipei. Am orchestrat scenarii pedagogice imersive bazate pe psihologia copilului.',
+      desc_en: 'Operational management and team coordination. Orchestrated immersive pedagogical scenarios based on child psychology.'
+    },
+    {
+      role_ro: 'Customer Support Specialist',
+      role_en: 'Customer Support Specialist',
+      company: 'BT / Regina Maria / CGS',
+      period: 'Collective Exp.',
+      desc_ro: 'Expertiză în Banking, Medical & Telecom. Management de performanță KPI (AHT, CSAT) și Troubleshooting Tehnic în Engleză & Română.',
+      desc_en: 'Banking, Healthcare & Telecom expertise. High-performance KPI management (AHT, CSAT) and Technical Troubleshooting in English & Romanian.'
+    }
+  ];
+
+  leadership = [
+    {
+      title: "English Theatre Troupe 'Dramatricks'",
+      role: 'Founder',
+      desc_ro: 'Regie, Scenaristică și Prezență Scenică (Limba Engleză).',
+      desc_en: 'Directing, Scriptwriting, and Stage Presence (English).'
+    },
+    {
+      title: 'High School Debate Club',
+      role: 'Founder',
+      desc_ro: 'Public Speaking și Argumentare (Limba Engleză).',
+      desc_en: 'Public Speaking and Argumentation (English).'
+    },
+    {
+      title: 'English Proficiency',
+      role: 'C2 Certification',
+      desc_ro: 'Cambridge Advanced - Profil Liceal Bilingv.',
+      desc_en: 'Cambridge Advanced - Bilingual High School Profile.'
+    }
+  ];
+
   rProjects = [
     {
       title: 'Oncology Survival Analysis',
       icon: '⚕️',
-      problem: 'Interpretarea datelor de supraviețuire brute este dificilă și predispusă la erori umane în studiile clinice.',
-      solution: 'Algoritm automatizat R pentru generarea curbelor Kaplan-Meier și calculul Hazard Ratio.',
-      impact: 'Decizii clinice bazate pe date statistice validate, standardizând raportarea eficacității tratamentului.',
+      problem_ro: 'Interpretarea datelor de supraviețuire brute este dificilă și predispusă la erori umane.',
+      problem_en: 'Raw survival data interpretation is difficult and prone to human error.',
+      solution_ro: 'Algoritm automatizat R pentru generarea curbelor Kaplan-Meier și calculul Hazard Ratio.',
+      solution_en: 'Automated R algorithm for Kaplan-Meier curve generation and Hazard Ratio calculation.',
+      impact_ro: 'Decizii clinice bazate pe date statistice validate, standardizând raportarea.',
+      impact_en: 'Clinical decisions based on validated statistical data, standardizing reporting.',
       code: `fit <- survfit(Surv(time, status) ~ treatment)\nggsurvplot(fit, data = lung, pval = TRUE)`,
       image: 'assets/KMplot.png'
     },
     {
       title: 'qPCR Validation Tool',
       icon: '🧪',
-      problem: 'Calculul manual al eficienței PCR și regresiei liniare consumă 2 ore/set și riscă neconformitatea IVDR.',
-      solution: 'Script R care extrage automat valorile Cq, elimină outlierii și calculează panta/R².',
-      impact: 'Reducerea timpului de analiză cu 90% și asigurarea conformității instantanee cu normele de laborator.',
+      problem_ro: 'Calculul manual al eficienței PCR consumă 2 ore/set și riscă neconformitatea IVDR.',
+      problem_en: 'Manual PCR efficiency calculation takes 2 hours/set and risks IVDR non-compliance.',
+      solution_ro: 'Script R care extrage automat valorile Cq, elimină outlierii și calculează panta/R².',
+      solution_en: 'R script that automatically extracts Cq values, removes outliers, and calculates slope/R².',
+      impact_ro: 'Reducerea timpului de analiză cu 90% și asigurarea conformității de laborator.',
+      impact_en: '90% reduction in analysis time and ensuring laboratory compliance.',
       code: `model <- lm(Ct ~ log10(Conc), data=df)\nefficiency <- (10^(-1/coef(model)[2]) - 1) * 100`,
       image: 'assets/r_qpcr.png'
     },
     {
       title: 'Genomics Heatmap (PCA)',
       icon: '🧬',
-      problem: 'Vizualizarea corelațiilor în seturi de date genomice multidimensionale este imposibilă în tabele standard.',
-      solution: 'Implementare Pheatmap cu Clustering Ierarhic pentru vizualizarea expresiei genice.',
-      impact: 'Identificarea biomarkerilor critici și a nișelor ecologice în studiile de mediu.',
+      problem_ro: 'Vizualizarea corelațiilor în seturi de date genomice multidimensionale este imposibilă.',
+      problem_en: 'Visualizing correlations in multidimensional genomic datasets is impossible manually.',
+      solution_ro: 'Implementare Pheatmap cu Clustering Ierarhic pentru vizualizarea expresiei genice.',
+      solution_en: 'Pheatmap implementation with Hierarchical Clustering for gene expression visualization.',
+      impact_ro: 'Identificarea biomarkerilor critici și a nișelor ecologice.',
+      impact_en: 'Identification of critical biomarkers and ecological niches.',
       code: `pheatmap(mat, clustering_distance_cols = "euclidean",
          color = colorRampPalette(c("navy", "white", "firebrick3"))(50))`,
       image: 'assets/r_heatmap.png'
-    }
-  ];
-
-  experience = [
-    {
-      role: 'Quality Engineer (GXP)',
-      company: 'Terapia SA',
-      period: '04/2025 - 10/2025',
-      desc: 'Guardian of Data Integrity. Managed SOPs and ensured strict adherence to GLP/GCP standards. Conducted CAPA investigations.'
-    },
-    {
-      role: 'Sales & Business Development',
-      company: 'Freelance',
-      period: '2023 - 2025',
-      desc: 'High-volume prospecting and CRM management. Developed B2B negotiation strategies.'
-    },
-    {
-      role: 'Customer Exp. Manager',
-      company: 'Tărâmul Elfilor',
-      period: '2015 - 2020',
-      desc: 'Managed daily operations. Orchestrated immersive pedagogical scenarios based on child psychology. Engineered childhood memories.'
-    },
-    {
-      role: 'Customer Support Specialist',
-      company: 'BT / Regina Maria / CGS',
-      period: 'Collective Exp.',
-      desc: 'Banking, Healthcare & Telecom expertise. High-performance KPI management (AHT, CSAT) and Technical Troubleshooting in English & Romanian.'
     }
   ];
 
@@ -151,14 +187,12 @@ elif logistics.delay > 15_mins:
   ];
 
   articles = [
-    { title: 'Breathing Chemicals: Air Pollution Review', type: 'Published (2022)' },
-    { title: 'Microbial pollution in Mureș River', type: 'Academic Research' },
-    { title: 'Genetic potential of groundwater bacteria', type: 'Thesis (10/10)' }
+    { title_ro: 'Breathing Chemicals: Air Pollution Review', title_en: 'Breathing Chemicals: Air Pollution Review', type_ro: 'Publicat (2022)', type_en: 'Published (2022)' },
+    { title_ro: 'Poluarea microbială în Râul Mureș', title_en: 'Microbial pollution in Mureș River', type_ro: 'Cercetare Academică', type_en: 'Academic Research' },
+    { title_ro: 'Potențialul genetic al bacteriilor din apele subterane', title_en: 'Genetic potential of groundwater bacteria', type_ro: 'Teză (10/10)', type_en: 'Thesis (10/10)' }
   ];
 
-  leadership = [
-    { title: "English Theatre Troupe 'Dramatricks'", role: 'Founder', desc: 'Directing, Scriptwriting, and Stage Presence (English).' },
-    { title: 'High School Debate Club', role: 'Founder', desc: 'Public Speaking & Argumentation (English).' },
-    { title: 'English Proficiency', role: 'C2 Certification', desc: 'Cambridge Advanced - Bilingual High School Profile.' }
-  ];
+  setLang(lang: 'ro' | 'en') {
+    this.currentLang = lang;
+  }
 }

@@ -30,13 +30,13 @@
     {{ currentLang === 'ro' ? heroTitle_ro : heroTitle_en }}
   </h1>
   <p class="relative z-10 max-w-3xl mx-auto text-gray-400 text-base md:text-lg font-light leading-relaxed mb-12">
-    {{ currentLang === 'ro' ? heroBio_ro : heroBio_en }}
+    {{ currentLang === 'ro' ? bio_ro : bio_en }}
   </p>
   <div class="flex flex-wrap justify-center gap-6 relative z-10">
-    <a href="#skills" class="px-10 py-4 bg-[#00e5ff] text-black font-black rounded-xl hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] transition uppercase text-sm">The 5 Pillars</a>
-    <a href="#software" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#ffd600] hover:shadow-[0_0_20px_rgba(255,214,0,0.2)] transition uppercase text-sm bg-black/40 backdrop-blur-sm">Proprietary Ecosystem</a>
+    <a href="#skills" class="px-10 py-4 bg-[#00e5ff] text-black font-black rounded-xl hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] transition uppercase text-sm">{{ currentLang === 'ro' ? 'Cele 5 Piloți' : 'The 5 Pillars' }}</a>
+    <a href="#software" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#ffd600] hover:shadow-[0_0_20px_rgba(255,214,0,0.2)] transition uppercase text-sm bg-black/40 backdrop-blur-sm">{{ currentLang === 'ro' ? 'Ecosistem Proprietar' : 'Proprietary Ecosystem' }}</a>
     <a href="#r-stats" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#00e5ff] transition uppercase text-sm bg-black/40 backdrop-blur-sm">R-Stats</a>
-    <a href="#experience" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#00e5ff] transition uppercase text-sm bg-black/40 backdrop-blur-sm">Experience</a>
+    <a href="#experience" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#00e5ff] transition uppercase text-sm bg-black/40 backdrop-blur-sm">{{ currentLang === 'ro' ? 'Experiență' : 'Experience' }}</a>
     <a href="#contact" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#00e5ff] transition uppercase text-sm bg-black/40 backdrop-blur-sm">Contact</a>
   </div>
 </div>
@@ -44,9 +44,9 @@
 <div id="skills" class="py-32 bg-[#080808] border-y border-white/5">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
-      <span class="h-px w-16 bg-[#00e5ff]"></span> The 5 Strategic Pillars <span class="h-px w-16 bg-[#00e5ff]"></span>
+      <span class="h-px w-16 bg-[#00e5ff]"></span> {{ currentLang === 'ro' ? 'Cele 5 Piloți Strategici' : 'The 5 Strategic Pillars' }} <span class="h-px w-16 bg-[#00e5ff]"></span>
     </h2>
-    <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">Skills Matrix</p>
+    <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">{{ currentLang === 'ro' ? 'Matrice de Competențe' : 'Skills Matrix' }}</p>
     <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
       <div *ngFor="let skill of skills" class="bg-[#0a0a0a] rounded-2xl border border-white/10 p-8 hover:border-[#00e5ff]/50 transition-all duration-300 flex flex-col h-full">
         <h3 class="text-[#ffd600] font-black text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-4">{{ skill.category }}</h3>
@@ -61,8 +61,8 @@
 <div id="software" class="py-32 bg-black relative overflow-hidden">
   <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
   <div class="relative max-w-7xl mx-auto px-4">
-    <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-[0.3em]">Proprietary Ecosystem</h2>
-    <p class="text-center text-gray-500 text-sm font-mono uppercase tracking-[0.4em] mb-20">The Products</p>
+    <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-[0.3em]">{{ currentLang === 'ro' ? 'Ecosistem Proprietar' : 'Proprietary Ecosystem' }}</h2>
+    <p class="text-center text-gray-500 text-sm font-mono uppercase tracking-[0.4em] mb-20">{{ currentLang === 'ro' ? 'Produsele' : 'The Products' }}</p>
     <div class="grid md:grid-cols-2 gap-12">
       <div *ngFor="let sw of softwareProjects" class="bg-[#0a0a0a]/95 backdrop-blur-md rounded-3xl overflow-hidden border border-[#00e5ff]/20 p-10 hover:border-[#00e5ff]/50 transition-all duration-500 flex flex-col">
         <div class="flex items-center gap-4 mb-6">
@@ -70,11 +70,11 @@
             <img [src]="sw.logo" alt="{{ sw.name }}" class="w-full h-full object-contain">
           </div>
           <div>
-            <span class="text-[10px] text-[#00e5ff] font-mono uppercase tracking-wider block mb-1">{{ sw.tagline }}</span>
+            <span class="text-[10px] text-[#00e5ff] font-mono uppercase tracking-wider block mb-1">{{ currentLang === 'ro' ? sw.tagline_ro : sw.tagline_en }}</span>
             <h3 class="text-xl md:text-2xl font-black text-white uppercase">{{ sw.name }}</h3>
           </div>
         </div>
-        <p class="text-gray-400 text-sm leading-relaxed font-light mb-6">{{ sw.description }}</p>
+        <p class="text-gray-400 text-sm leading-relaxed font-light mb-6">{{ currentLang === 'ro' ? sw.desc_ro : sw.desc_en }}</p>
         <div class="flex flex-wrap gap-2 mb-6">
           <span *ngFor="let f of sw.features" class="px-3 py-1.5 rounded-full text-[9px] font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">{{ f }}</span>
         </div>
@@ -100,7 +100,7 @@
     <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
       <span class="h-px w-16 bg-[#00e5ff]"></span> R &amp; Biostatistics <span class="h-px w-16 bg-[#00e5ff]"></span>
     </h2>
-    <p class="text-center text-gray-500 text-sm mb-24 uppercase tracking-[0.3em]">Split-View Layout</p>
+    <p class="text-center text-gray-500 text-sm mb-24 uppercase tracking-[0.3em]">{{ currentLang === 'ro' ? 'Layout Split-View' : 'Split-View Layout' }}</p>
     <div class="space-y-32">
       <div *ngFor="let r of rProjects" class="flex flex-col md:flex-row gap-16 items-start border-b border-white/5 pb-20 last:border-0">
         <div class="md:w-1/2 w-full space-y-8">
@@ -110,16 +110,16 @@
           </div>
           <div class="space-y-4">
             <div class="bg-red-500/10 p-6 border-l-4 border-red-500 rounded-r-lg shadow-inner">
-              <h4 class="text-red-400 text-[10px] font-black uppercase mb-2">Problem Context</h4>
-              <p class="text-sm text-gray-400 leading-relaxed">{{ r.problem }}</p>
+              <h4 class="text-red-400 text-[10px] font-black uppercase mb-2">{{ currentLang === 'ro' ? 'Context Problem' : 'Problem Context' }}</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">{{ currentLang === 'ro' ? r.problem_ro : r.problem_en }}</p>
             </div>
             <div class="bg-green-500/10 p-6 border-l-4 border-green-500 rounded-r-lg shadow-inner">
-              <h4 class="text-green-400 text-[10px] font-black uppercase mb-2">Technical Solution</h4>
-              <p class="text-sm text-gray-400 leading-relaxed">{{ r.solution }}</p>
+              <h4 class="text-green-400 text-[10px] font-black uppercase mb-2">{{ currentLang === 'ro' ? 'Soluție Tehnică' : 'Technical Solution' }}</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">{{ currentLang === 'ro' ? r.solution_ro : r.solution_en }}</p>
             </div>
             <div class="bg-blue-500/10 p-6 border-l-4 border-blue-500 rounded-r-lg shadow-inner">
-              <h4 class="text-blue-400 text-[10px] font-black uppercase mb-2">Impact / Result</h4>
-              <p class="text-sm text-gray-200 font-bold italic">{{ r.impact }}</p>
+              <h4 class="text-blue-400 text-[10px] font-black uppercase mb-2">{{ currentLang === 'ro' ? 'Impact / Rezultat' : 'Impact / Result' }}</h4>
+              <p class="text-sm text-gray-200 font-bold italic">{{ currentLang === 'ro' ? r.impact_ro : r.impact_en }}</p>
             </div>
           </div>
         </div>
@@ -146,9 +146,9 @@
   <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
   <div class="relative max-w-4xl mx-auto px-4">
     <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
-      <span class="h-px w-16 bg-[#00e5ff]"></span> Experience <span class="h-px w-16 bg-[#00e5ff]"></span>
+      <span class="h-px w-16 bg-[#00e5ff]"></span> {{ currentLang === 'ro' ? 'Experiență' : 'Experience' }} <span class="h-px w-16 bg-[#00e5ff]"></span>
     </h2>
-    <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">Timeline</p>
+    <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">{{ currentLang === 'ro' ? 'Cronologie' : 'Timeline' }}</p>
     <div class="space-y-8">
       <div *ngFor="let exp of experience; let i = index" class="flex gap-8 items-start">
         <div class="flex flex-col items-center shrink-0">
@@ -157,11 +157,11 @@
         </div>
         <div class="flex-1 pb-12">
           <div class="flex flex-wrap items-baseline gap-3 mb-2">
-            <h3 class="text-xl font-black text-white uppercase">{{ exp.role }}</h3>
+            <h3 class="text-xl font-black text-white uppercase">{{ currentLang === 'ro' ? exp.role_ro : exp.role_en }}</h3>
             <span class="text-[#ffd600] text-sm font-bold">{{ exp.company }}</span>
             <span class="text-gray-500 text-xs font-mono">{{ exp.period }}</span>
           </div>
-          <p class="text-gray-400 text-sm leading-relaxed font-light">{{ exp.desc }}</p>
+          <p class="text-gray-400 text-sm leading-relaxed font-light">{{ currentLang === 'ro' ? exp.desc_ro : exp.desc_en }}</p>
         </div>
       </div>
     </div>
@@ -170,13 +170,13 @@
 
 <div id="education" class="py-32 max-w-7xl mx-auto px-4 border-t border-white/5">
   <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
-    <span class="h-px w-16 bg-[#00e5ff]"></span> Education &amp; Publications <span class="h-px w-16 bg-[#00e5ff]"></span>
+    <span class="h-px w-16 bg-[#00e5ff]"></span> {{ currentLang === 'ro' ? 'Educație &amp; Publicații' : 'Education &amp; Publications' }} <span class="h-px w-16 bg-[#00e5ff]"></span>
   </h2>
-  <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">Academic &amp; Research</p>
+  <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">{{ currentLang === 'ro' ? 'Academic &amp; Cercetare' : 'Academic &amp; Research' }}</p>
   <div class="grid md:grid-cols-2 gap-16">
     <div>
       <h3 class="text-2xl font-black mb-12 text-[#00e5ff] uppercase tracking-widest flex items-center gap-4">
-        <span class="w-8 h-px bg-[#00e5ff]"></span> Education
+        <span class="w-8 h-px bg-[#00e5ff]"></span> {{ currentLang === 'ro' ? 'Educație' : 'Education' }}
       </h3>
       <div class="space-y-10">
         <div *ngFor="let edu of education" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-[#ffd600]/50 transition-all duration-500">
@@ -188,21 +188,21 @@
     </div>
     <div>
       <h3 class="text-2xl font-black mb-12 text-[#ffd600] uppercase tracking-widest flex items-center gap-4">
-        <span class="w-8 h-px bg-[#ffd600]"></span> Publications
+        <span class="w-8 h-px bg-[#ffd600]"></span> {{ currentLang === 'ro' ? 'Publicații' : 'Publications' }}
       </h3>
       <div class="space-y-6">
         <div *ngFor="let art of articles" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#00e5ff]/50 transition-all duration-500">
-          <div class="font-black text-lg text-white mb-2">{{ art.title }}</div>
-          <div class="text-xs text-[#00e5ff] font-mono uppercase">{{ art.type }}</div>
+          <div class="font-black text-lg text-white mb-2">{{ currentLang === 'ro' ? art.title_ro : art.title_en }}</div>
+          <div class="text-xs text-[#00e5ff] font-mono uppercase">{{ currentLang === 'ro' ? art.type_ro : art.type_en }}</div>
         </div>
       </div>
       <h3 class="text-2xl font-black mb-8 mt-16 text-[#00e5ff] uppercase tracking-widest flex items-center gap-4">
-        <span class="w-8 h-px bg-[#00e5ff]"></span> Leadership &amp; Languages
+        <span class="w-8 h-px bg-[#00e5ff]"></span> {{ currentLang === 'ro' ? 'Leadership &amp; Limbi' : 'Leadership &amp; Languages' }}
       </h3>
       <div class="space-y-6">
         <div *ngFor="let lead of leadership" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-[#00e5ff]/50 transition-all duration-500">
           <div class="font-black text-lg text-white mb-2">{{ lead.title }} <span class="text-[#ffd600] font-normal">({{ lead.role }})</span></div>
-          <div class="text-sm text-gray-400 font-light leading-relaxed">{{ lead.desc }}</div>
+          <div class="text-sm text-gray-400 font-light leading-relaxed">{{ currentLang === 'ro' ? lead.desc_ro : lead.desc_en }}</div>
         </div>
       </div>
     </div>
@@ -210,7 +210,7 @@
 </div>
 
 <div id="contact" class="py-40 bg-black text-center border-t border-white/5">
-  <h2 class="text-7xl font-black text-white mb-24 tracking-tighter uppercase">Let's Connect</h2>
+  <h2 class="text-7xl font-black text-white mb-24 tracking-tighter uppercase">{{ currentLang === 'ro' ? 'Hai să ne conectăm' : "Let's Connect" }}</h2>
   <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 mb-20 px-4">
     <a [href]="'mailto:' + contact.email" class="bg-white/5 backdrop-blur-sm px-10 py-6 rounded-2xl border border-white/10 hover:border-[#00e5ff] transition-all text-lg font-mono flex items-center gap-4 w-full md:w-auto justify-center">
       <span class="text-2xl text-[#00e5ff]">✉</span> {{ contact.email }}
