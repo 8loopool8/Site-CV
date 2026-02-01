@@ -15,91 +15,85 @@
         <button (click)="setLang('en')" [class.bg-[#00e5ff]]="currentLang === 'en'" [class.text-black]="currentLang === 'en'" class="px-4 py-1.5 rounded-full text-xs font-bold transition text-gray-400">EN</button>
       </div>
       <a href="#skills" class="text-xs font-bold text-gray-400 hover:text-[#ffd600] transition uppercase tracking-widest">Skills</a>
-      <a href="#experience" class="text-xs font-bold text-gray-400 hover:text-[#ffd600] transition uppercase tracking-widest">Experience</a>
-      <a href="#projects" class="text-xs font-bold text-gray-400 hover:text-[#ffd600] transition uppercase tracking-widest">Projects</a>
+      <a href="#software" class="text-xs font-bold text-gray-400 hover:text-[#ffd600] transition uppercase tracking-widest">Systems</a>
+      <a href="#r-stats" class="text-xs font-bold text-gray-400 hover:text-[#ffd600] transition uppercase tracking-widest">R-Stats</a>
       <a href="#contact" class="bg-[#00e5ff] text-black px-6 py-2.5 rounded-full text-xs font-black hover:scale-105 hover:shadow-[0_0_25px_rgba(0,229,255,0.6)] transition shadow-lg">CONTACT</a>
     </div>
   </div>
 </nav>
 
-<div class="relative pt-48 pb-24 text-center px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center bg-[#050505]">
+<div id="hero" class="relative pt-48 pb-24 px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center bg-[#050505] text-center">
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] max-w-[100vw] max-h-[100vh] bg-[#00e5ff]/10 rounded-full blur-[180px] pointer-events-none"></div>
-  <h1 class="relative z-10 text-6xl md:text-8xl lg:text-9xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-[0_0_40px_rgba(0,229,255,0.3)]">
-    AIUDIT <span class="text-[#00e5ff] drop-shadow-[0_0_30px_rgba(0,229,255,0.8)]">SOLUTIONS</span>
+  <h1 class="relative z-10 text-3xl md:text-4xl lg:text-5xl font-black text-white mb-8 tracking-tight leading-tight drop-shadow-[0_0_40px_rgba(0,229,255,0.3)]">
+    {{ currentLang === 'ro' ? heroTitle_ro : heroTitle_en }}
   </h1>
-  <div class="relative z-10 flex flex-wrap justify-center gap-2 mb-6">
-    <span *ngFor="let pill of rolePills" class="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/60 border border-[#00e5ff]/50 text-[#00e5ff]/90 hover:border-[#ffd600]/50 hover:text-[#ffd600]/90 transition">{{ pill }}</span>
-  </div>
-  <p class="relative z-10 max-w-3xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-12">
-    {{ currentLang === 'ro' ? intro_ro : intro_en }}
+  <p class="relative z-10 max-w-3xl mx-auto text-gray-400 text-base md:text-lg font-light leading-relaxed mb-12">
+    {{ currentLang === 'ro' ? heroBio_ro : heroBio_en }}
   </p>
   <div class="flex flex-wrap justify-center gap-6 relative z-10">
-    <a href="#projects" class="px-10 py-4 bg-[#00e5ff] text-black font-black rounded-xl hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] transition uppercase text-sm">View Portfolio</a>
-    <a href="#contact" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#ffd600] hover:shadow-[0_0_20px_rgba(255,214,0,0.2)] transition uppercase text-sm bg-black/40 backdrop-blur-sm">Contact</a>
+    <a href="#skills" class="px-10 py-4 bg-[#00e5ff] text-black font-black rounded-xl hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] transition uppercase text-sm">The 4 Pillars</a>
+    <a href="#software" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#ffd600] hover:shadow-[0_0_20px_rgba(255,214,0,0.2)] transition uppercase text-sm bg-black/40 backdrop-blur-sm">Proprietary Systems</a>
+    <a href="#r-stats" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#00e5ff] transition uppercase text-sm bg-black/40 backdrop-blur-sm">R-Stats</a>
+    <a href="#contact" class="px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-[#00e5ff] transition uppercase text-sm bg-black/40 backdrop-blur-sm">Contact</a>
   </div>
 </div>
 
 <div id="skills" class="py-32 bg-[#080808] border-y border-white/5">
-  <div class="max-w-6xl mx-auto px-4">
+  <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
-      <span class="h-px w-16 bg-[#00e5ff]"></span> Technical Stack <span class="h-px w-16 bg-[#00e5ff]"></span>
+      <span class="h-px w-16 bg-[#00e5ff]"></span> The 4 Strategic Pillars <span class="h-px w-16 bg-[#00e5ff]"></span>
     </h2>
-    <p class="text-center text-gray-500 text-sm mb-16 uppercase tracking-[0.3em]">Skills Matrix</p>
+    <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">Skills Matrix</p>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div *ngFor="let cat of skills" class="bg-[#0a0a0a] rounded-2xl border border-white/10 p-8 hover:border-[#00e5ff]/50 transition-all duration-300">
-        <h3 class="text-[#ffd600] font-black text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-4">{{ cat.category }}</h3>
-        <ul class="space-y-3">
-          <li *ngFor="let item of cat.items" class="text-gray-400 text-sm font-light flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#00e5ff] shrink-0"></span>
-            {{ item }}
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="experience" class="py-32 bg-black relative">
-  <div class="max-w-4xl mx-auto px-4">
-    <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
-      <span class="h-px w-16 bg-[#00e5ff]"></span> Professional Experience <span class="h-px w-16 bg-[#00e5ff]"></span>
-    </h2>
-    <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">Career Timeline</p>
-    <div class="space-y-16 border-l-2 border-[#00e5ff]/30 pl-12 relative">
-      <div *ngFor="let exp of experience" class="relative">
-        <div class="absolute -left-[50px] top-1.5 h-4 w-4 rounded-full bg-[#050505] border-2 border-[#00e5ff]"></div>
-        <div class="text-[10px] text-[#ffd600] font-black uppercase tracking-widest mb-2 opacity-90">{{ exp.period }}</div>
-        <h3 class="text-xl font-bold text-white mb-1">{{ exp.role }}</h3>
-        <div class="text-xs text-gray-500 font-bold uppercase tracking-tighter mb-4">{{ exp.company }}</div>
-        <p class="text-sm text-gray-400 leading-relaxed font-light">{{ currentLang === 'ro' ? exp.desc_ro : exp.desc_en }}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="projects" class="py-32 bg-[#050505] relative overflow-hidden">
-  <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
-  <div class="relative max-w-6xl mx-auto px-4">
-    <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-[0.3em]">Software Projects</h2>
-    <p class="text-center text-gray-500 text-sm font-mono uppercase tracking-[0.4em] mb-20">Portfolio Spotlight</p>
-    <div class="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
-      <div *ngFor="let proj of projects" (click)="openProject(proj)" class="group bg-[#0a0a0a]/95 backdrop-blur-md rounded-3xl overflow-hidden border border-[#00e5ff]/20 hover:border-[#00e5ff]/60 hover:shadow-[0_0_50px_rgba(0,229,255,0.15)] transition-all duration-500 cursor-pointer flex flex-col h-full shadow-2xl">
-        <div class="h-64 overflow-hidden relative border-b border-white/5">
-          <img [src]="proj.image" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="{{ proj.title }}">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          <div class="absolute top-5 left-5 z-20 w-14 h-14 min-w-[56px] max-w-[56px] min-h-[56px] max-h-[56px] rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,214,0,0.5)] bg-[#ffd600]">
-            <img [src]="proj.logo" alt="Logo" class="w-full h-full object-contain">
-          </div>
-          <span class="absolute top-5 right-5 z-20 bg-black/90 backdrop-blur-sm text-[#ffd600] border border-[#ffd600]/50 text-[10px] font-black px-4 py-2 rounded-full uppercase">{{ proj.badge }}</span>
+      <div *ngFor="let skill of skills" class="bg-[#0a0a0a] rounded-2xl border border-white/10 p-8 hover:border-[#00e5ff]/50 transition-all duration-300 flex flex-col h-full">
+        <h3 class="text-[#ffd600] font-black text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-4">{{ currentLang === 'ro' ? skill.category_ro : skill.category_en }}</h3>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span *ngFor="let kw of skill.keywords" class="px-3 py-1 rounded-full text-[10px] font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">{{ kw }}</span>
         </div>
-        <div class="p-10 flex-1 flex flex-col">
-          <h3 class="text-2xl font-black text-white mb-2 uppercase group-hover:text-[#00e5ff] transition">{{ proj.title }}</h3>
-          <p class="text-[10px] text-[#00e5ff] font-mono uppercase tracking-wider mb-4">{{ proj.subtitle }}</p>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">{{ currentLang === 'ro' ? proj.description_ro : proj.description_en }}</p>
-          <div class="flex items-center justify-between pt-6 border-t border-white/5 mt-auto">
-            <span class="text-xs font-black text-white uppercase tracking-widest">View Details →</span>
-            <div class="flex gap-2 flex-wrap justify-end">
-              <span *ngFor="let t of proj.tech" class="text-[8px] bg-white/5 px-2 py-1 rounded border border-white/5 text-gray-500 uppercase">{{t}}</span>
+        <p class="text-gray-400 text-sm leading-relaxed font-light flex-1">{{ currentLang === 'ro' ? skill.desc_ro : skill.desc_en }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="software" class="py-32 bg-black relative overflow-hidden">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+  <div class="relative max-w-7xl mx-auto px-4">
+    <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-[0.3em]">Proprietary Systems</h2>
+    <p class="text-center text-gray-500 text-sm font-mono uppercase tracking-[0.4em] mb-20">The Products</p>
+    <div class="space-y-24">
+      <div *ngFor="let sw of softwareProjects" class="bg-[#0a0a0a]/95 backdrop-blur-md rounded-3xl overflow-hidden border border-[#00e5ff]/20 p-10 md:p-16 hover:border-[#00e5ff]/50 transition-all duration-500">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+          <div class="flex-1 space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 min-w-[64px] max-w-[64px] min-h-[64px] max-h-[64px] rounded-full border-2 border-white flex items-center justify-center overflow-hidden bg-[#ffd600] shrink-0" *ngIf="sw.logo">
+                <img [src]="sw.logo" alt="{{ sw.name }}" class="w-full h-full object-contain">
+              </div>
+              <div>
+                <span class="text-[10px] text-[#00e5ff] font-mono uppercase tracking-wider block mb-1">{{ sw.tagline }}</span>
+                <h3 class="text-2xl md:text-3xl font-black text-white uppercase">{{ currentLang === 'ro' ? sw.headline_ro : sw.headline_en }}</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 text-base leading-relaxed font-light">{{ currentLang === 'ro' ? sw.subheadline_ro : sw.subheadline_en }}</p>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ currentLang === 'ro' ? sw.description_ro : sw.description_en }}</p>
+            <div class="flex flex-wrap gap-3 pt-4">
+              <span *ngFor="let f of sw.features" class="px-4 py-2 rounded-full text-[10px] font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">
+                <span class="text-[#ffd600]">{{ f.title }}:</span> {{ currentLang === 'ro' ? f.desc_ro : f.desc_en }}
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4">
+              <span *ngFor="let t of sw.tech" class="px-3 py-1 rounded text-[9px] font-bold bg-white/5 text-gray-500 border border-white/5 uppercase">{{ t }}</span>
+            </div>
+          </div>
+          <div class="w-full lg:w-96 shrink-0">
+            <div class="bg-black rounded-xl border border-[#00e5ff]/30 overflow-hidden">
+              <div class="bg-[#0a0a0a] px-4 py-3 border-b border-[#00e5ff]/20 flex gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                <span class="ml-2 text-[10px] text-gray-500 font-mono">Thinking Box</span>
+              </div>
+              <pre class="p-6 text-xs font-mono text-[#00ff88] overflow-x-auto leading-relaxed bg-black whitespace-pre-wrap">{{ sw.codeSnippet }}</pre>
             </div>
           </div>
         </div>
@@ -108,39 +102,82 @@
   </div>
 </div>
 
-<div class="py-32 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-24 border-t border-white/5">
-  <div>
-    <h3 class="text-2xl font-black mb-16 text-[#00e5ff] uppercase tracking-widest flex items-center gap-4">
-      <span class="w-8 h-px bg-[#00e5ff]"></span> Education
-    </h3>
-    <div class="space-y-10">
-      <div *ngFor="let edu of education" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-[#ffd600]/50 transition-all duration-500">
-        <div class="font-black text-xl text-white mb-2">{{ currentLang === 'ro' ? edu.degree_ro : edu.degree_en }}</div>
-        <div class="text-xs text-gray-500 font-black uppercase mb-4">{{ edu.school }} • {{ edu.period }}</div>
-        <div class="text-sm text-[#00e5ff] font-mono border-t border-white/5 pt-4 leading-relaxed">{{ currentLang === 'ro' ? edu.details_ro : edu.details_en }}</div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <h3 class="text-2xl font-black mb-16 text-[#ffd600] uppercase tracking-widest flex items-center gap-4">
-      <span class="w-8 h-px bg-[#ffd600]"></span> Publications &amp; Research
-    </h3>
-    <div class="grid gap-4">
-      <div *ngFor="let art of articles" class="bg-black/40 backdrop-blur-sm p-6 border border-white/10 rounded-2xl hover:border-[#00e5ff] hover:bg-white/5 transition-all duration-300 group">
-        <div class="text-white font-bold text-sm mb-1 group-hover:text-[#00e5ff] transition">{{ art.title }}</div>
-        <div class="text-[10px] text-gray-500 font-black uppercase tracking-widest">{{ art.type }}</div>
+<div id="r-stats" class="py-32 bg-[#080808] border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
+      <span class="h-px w-16 bg-[#00e5ff]"></span> R &amp; Biostatistics <span class="h-px w-16 bg-[#00e5ff]"></span>
+    </h2>
+    <p class="text-center text-gray-500 text-sm mb-24 uppercase tracking-[0.3em]">Gold Standard Layout</p>
+    <div class="space-y-32">
+      <div *ngFor="let r of rProjects" class="flex flex-col md:flex-row gap-16 items-start border-b border-white/5 pb-20 last:border-0">
+        <div class="md:w-1/2 w-full space-y-8">
+          <div class="flex items-center gap-4 text-[#00e5ff]">
+            <span class="text-4xl bg-white/5 p-4 rounded-xl border border-white/5">{{ r.icon }}</span>
+            <h3 class="text-2xl font-bold text-white uppercase">{{ r.title }}</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-red-500/10 p-6 border-l-4 border-red-500 rounded-r-lg shadow-inner">
+              <h4 class="text-red-400 text-[10px] font-black uppercase mb-2">Problem Context</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">{{ r.problem }}</p>
+            </div>
+            <div class="bg-green-500/10 p-6 border-l-4 border-green-500 rounded-r-lg shadow-inner">
+              <h4 class="text-green-400 text-[10px] font-black uppercase mb-2">Technical Solution</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">{{ r.solution }}</p>
+            </div>
+            <div class="bg-blue-500/10 p-6 border-l-4 border-blue-500 rounded-r-lg shadow-inner">
+              <h4 class="text-blue-400 text-[10px] font-black uppercase mb-2">Impact / Result</h4>
+              <p class="text-sm text-gray-200 font-bold italic">{{ r.impact }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 w-full space-y-4">
+          <div class="bg-[#1e1e1e] rounded-t-xl border border-white/10 p-3 flex gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+            <span class="ml-2 text-[10px] text-gray-500 font-mono">analysis_script.R</span>
+          </div>
+          <div class="bg-black border-x border-b border-white/10 p-6 overflow-x-auto max-h-40 font-mono text-xs text-[#00e5ff] rounded-b-xl shadow-inner">
+            <pre class="text-[#00ff88]">{{ r.code }}</pre>
+          </div>
+          <div class="aspect-video bg-black rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+            <img [src]="r.image" class="w-full h-full object-contain" alt="{{ r.title }}">
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="py-32 bg-gradient-to-b from-black to-[#051505] text-center border-t border-white/5 relative overflow-hidden">
-  <span class="text-[#00e5ff] text-[10px] font-black tracking-[0.5em] uppercase block mb-6">Personal Ecosystem</span>
-  <h2 class="text-4xl font-black text-white mb-12 tracking-tighter">{{ currentLang === 'ro' ? 'Colecția Privată de Aroizi' : 'Private Aroids Collection' }}</h2>
-  <div class="max-w-2xl mx-auto px-6">
-    <p class="text-gray-400 text-lg leading-relaxed font-light">
-      {{ currentLang === 'ro' ? ecosystemText_ro : ecosystemText_en }}
-    </p>
+<div class="py-32 max-w-7xl mx-auto px-4 border-t border-white/5">
+  <h2 class="text-4xl font-black text-white text-center mb-4 uppercase tracking-widest flex items-center justify-center gap-4 flex-wrap">
+    <span class="h-px w-16 bg-[#00e5ff]"></span> Education &amp; Leadership <span class="h-px w-16 bg-[#00e5ff]"></span>
+  </h2>
+  <p class="text-center text-gray-500 text-sm mb-20 uppercase tracking-[0.3em]">Academic &amp; Soft Skills</p>
+  <div class="grid md:grid-cols-2 gap-16">
+    <div>
+      <h3 class="text-2xl font-black mb-12 text-[#00e5ff] uppercase tracking-widest flex items-center gap-4">
+        <span class="w-8 h-px bg-[#00e5ff]"></span> Education
+      </h3>
+      <div class="space-y-10">
+        <div *ngFor="let edu of education" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-[#ffd600]/50 transition-all duration-500">
+          <div class="font-black text-xl text-white mb-2">{{ currentLang === 'ro' ? edu.degree_ro : edu.degree_en }}</div>
+          <div class="text-xs text-gray-500 font-black uppercase mb-4">{{ edu.school }} • {{ edu.period }}</div>
+          <div class="text-sm text-[#00e5ff] font-mono border-t border-white/5 pt-4 leading-relaxed">{{ currentLang === 'ro' ? edu.details_ro : edu.details_en }}</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-2xl font-black mb-12 text-[#ffd600] uppercase tracking-widest flex items-center gap-4">
+        <span class="w-8 h-px bg-[#ffd600]"></span> Leadership &amp; Languages
+      </h3>
+      <div class="space-y-10">
+        <div *ngFor="let lead of leadership" class="bg-[#0a0a0a]/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-[#00e5ff]/50 transition-all duration-500">
+          <div class="font-black text-xl text-white mb-2">{{ currentLang === 'ro' ? lead.title_ro : lead.title_en }}</div>
+          <div class="text-sm text-gray-400 font-light leading-relaxed">{{ currentLang === 'ro' ? lead.desc_ro : lead.desc_en }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -161,39 +198,4 @@
     </a>
   </div>
   <footer class="text-gray-800 text-[10px] font-mono uppercase tracking-[0.8em] mt-12 px-4">&copy; 2026 Aiudit Solutions</footer>
-</div>
-
-<div *ngIf="activeProject" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4" (click)="closeProject()">
-  <div class="bg-[#0a0a0a] w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[#00e5ff]/30 shadow-[0_0_80px_rgba(0,229,255,0.15)] p-0" (click)="$event.stopPropagation()">
-    <div class="bg-gray-900/80 backdrop-blur-xl p-8 border-b border-white/10 flex justify-between items-center sticky top-0 z-10">
-      <div class="flex items-center gap-6">
-        <div class="w-14 h-14 min-w-[56px] max-w-[56px] min-h-[56px] max-h-[56px] rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,214,0,0.5)] bg-[#ffd600] shrink-0">
-          <img [src]="activeProject.logo || 'assets/Logo.png'" alt="Logo" class="w-full h-full object-contain">
-        </div>
-        <div>
-          <h2 class="text-3xl font-black text-white mb-1 uppercase">{{ activeProject.title }}</h2>
-          <span class="text-[10px] text-[#00e5ff] font-mono uppercase tracking-[0.2em] bg-[#00e5ff]/10 px-3 py-1 rounded-full">{{ activeProject.subtitle }}</span>
-        </div>
-      </div>
-      <button (click)="closeProject()" class="text-gray-500 hover:text-white text-6xl leading-none hover:rotate-90 transition-transform">&times;</button>
-    </div>
-    <div class="p-12">
-      <div class="mb-16">
-        <p class="text-gray-300 text-xl leading-relaxed whitespace-pre-line font-light">{{ currentLang === 'ro' ? (activeProject.full_desc_ro || activeProject.description_ro) : (activeProject.full_desc_en || activeProject.description_en) }}</p>
-      </div>
-      <div *ngIf="activeProject.code_files" class="grid lg:grid-cols-2 gap-8 mb-16">
-        <div *ngFor="let file of activeProject.code_files" class="bg-black rounded-2xl border border-[#00e5ff]/30 overflow-hidden shadow-2xl group hover:border-[#00e5ff]/60 transition-all">
-          <div class="bg-[#0a0a0a] px-6 py-4 text-xs text-gray-400 font-mono border-b border-[#00e5ff]/20 flex justify-between items-center">
-            <span class="flex items-center gap-3">
-              <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-              <span class="ml-3 font-bold text-[#00e5ff]">{{ file.name }}</span>
-            </span>
-          </div>
-          <pre class="p-8 text-xs font-mono text-[#00ff88] overflow-x-auto leading-relaxed bg-black"><code>{{ file.code }}</code></pre>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

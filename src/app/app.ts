@@ -25,57 +25,125 @@ export class App {
   openProject(project: any) { this.activeProject = project; }
   closeProject() { this.activeProject = null; }
 
-  rolePills = ['Quality Engineer', 'Biostatistician', 'Full-Stack Developer', 'GXP Compliance'];
+  heroTitle_ro = 'Hybrid R&D Scientist | AI Systems Architect | Biostatistician';
+  heroTitle_en = 'Hybrid R&D Scientist | AI Systems Architect | Biostatistician';
 
-  intro_ro = 'Biostatistică, Rigoare GXP și Inteligență Artificială. Transform datele în scuturi financiare și decizii clinice.';
-  intro_en = 'Biostatistics, GXP Rigor and AI. Transforming data into financial shields and clinical decisions.';
+  heroBio_ro = 'Sunt un specialist în Științe ale Vieții care a decis să nu mai aleagă între eprubetă și codul sursă. Cu un background solid în Biologie Moleculară (PCR/NGS) și un Master în Biostatistică, integrez rigoarea farmaceutică (Quality Engineering) cu inovația Generative AI. Dezvolt soluții precum Aiudit Safety, transformând conformitatea legală în sisteme autonome.';
+  heroBio_en = 'I am a Life Sciences specialist who decided to stop choosing between the test tube and the source code. With a solid background in Molecular Biology (PCR/NGS) and a Master\'s in Biostatistics, I integrate pharmaceutical rigor (Quality Engineering) with Generative AI innovation. I develop solutions like Aiudit Safety, transforming legal compliance into autonomous systems.';
 
   skills = [
-    { category: 'Biostatistics & Data', items: ['R Programming', 'SAS', 'Jamovi', 'Python (Pandas/NumPy)', 'SQL'] },
-    { category: 'GXP & Compliance', items: ['GLP / GCP', 'ALCOA+ Principles', 'SOP Management', 'CAPA Investigations', 'ISO 9001'] },
-    { category: 'Laboratory Tech', items: ['PCR & HPLC', 'Gas Chromatography', 'Microscopy', 'Cell Cultures', 'Spectrophotometry'] },
-    { category: 'Software Dev', items: ['Angular', 'TailwindCSS', 'Docker', 'Git', 'LLM Integration (RAG)'] }
-  ];
-
-  experience = [
     {
-      role: 'Quality Engineer (GXP)',
-      company: 'Terapia SA',
-      period: '04/2025 - 10/2025',
-      desc_ro: 'Asigurarea conformității cu standardele GLP/GCP într-un mediu farmaceutic. Gestionare Proceduri Operaționale Standard (SOP), investigații CAPA și aplicarea principiilor ALCOA+ pentru Integritatea Datelor, pregătind compania pentru audituri.',
-      desc_en: 'Ensured compliance with GLP/GCP standards in a pharmaceutical environment. Managed Standard Operating Procedures (SOPs), conducted CAPA investigations, and enforced ALCOA+ Data Integrity principles for audit readiness.'
+      category_ro: 'Data Science & Statistical Programming',
+      category_en: 'Data Science & Statistical Programming',
+      keywords: ['R (Expert)', 'SAS', 'Clinical Data', 'Python'],
+      desc_ro: 'Transpunerea modelelor statistice complexe în insights de business pentru studii clinice și cercetare de mediu.',
+      desc_en: 'Translating complex statistical models into business insights for clinical trials and environmental research.'
     },
     {
-      role: 'Sales & Business Development',
-      company: 'Freelance',
-      period: '2023 - 2025',
-      desc_ro: 'Prospecție de volum mare (Cold Calling) și management CRM. Dezvoltare strategii de negociere pentru închiderea eficientă a tranzacțiilor B2B.',
-      desc_en: 'High-volume prospecting (Cold Calling) and CRM management. Developed negotiation strategies to close B2B deals efficiently.'
+      category_ro: 'R&D & Molecular Diagnostics',
+      category_en: 'R&D & Molecular Diagnostics',
+      keywords: ['qPCR', 'Primer Design', 'Validare IVDR', 'NGS'],
+      desc_ro: 'Dezvoltarea și optimizarea protocoalelor de detecție moleculară cu accent pe sensibilitate și specificitate analitică.',
+      desc_en: 'Development and optimization of molecular detection protocols with emphasis on analytical sensitivity and specificity.'
     },
     {
-      role: 'Customer Exp. Manager',
-      company: 'Tărâmul Elfilor',
-      period: '2015 - 2020',
-      desc_ro: 'Gestionarea operațiunilor zilnice și coordonarea echipei pentru un centru educațional de divertisment cu trafic ridicat. Orchestrare scenarii pedagogice immersive bazate pe psihologia copilului, asigurând satisfacție ridicată a clienților (CSAT) și de-escaladare eficientă a conflictelor.',
-      desc_en: 'Managed daily operations and team coordination for a high-traffic educational entertainment center. Orchestrated immersive pedagogical scenarios based on child psychology, ensuring high customer satisfaction (CSAT) and effective conflict de-escalation with clients.'
+      category_ro: 'Quality Engineering & Regulatory',
+      category_en: 'Quality Engineering & Regulatory',
+      keywords: ['ALCOA+', 'ISO 13485', 'GMP/GCP', 'Data Integrity'],
+      desc_ro: 'Implementarea standardelor de integritate a datelor și managementul riscului într-un mediu de producție farma reglementat.',
+      desc_en: 'Implementation of data integrity standards and risk management in a regulated pharma production environment.'
+    },
+    {
+      category_ro: 'Business Development & Client Relations',
+      category_en: 'Business Development & Client Relations',
+      keywords: ['CRM Management', 'Strategic Negotiation', 'Cold Calling', 'Account Mgmt'],
+      desc_ro: 'Experiență în vânzări B2B și gestionarea relațiilor cu clienții. Abilități de negociere și comunicare dobândite în medii competitive.',
+      desc_en: 'Experience in B2B sales and client relationship management. Negotiation and communication skills acquired in competitive environments.'
     }
   ];
 
-  projects = [
+  softwareProjects = [
     {
-      title: 'Aiudit Solutions',
-      subtitle: 'Guardian Aingel',
-      badge: 'Privacy-First AI',
-      image: 'assets/dashboard_ui.png',
-      logo: 'assets/LogoGuardianAingel.png',
-      description_ro: 'Motor Cognitiv de Inspecție Privacy-First. Utilizând Federated Learning și LLM-uri locale (DeepSeek), sistemul identifică erori de documentație și riscuri regulate, protejând companiile farmaceutice de pierderi estimate la 8M Euro/zi în timpul opririi pentru audit.',
-      description_en: 'Developing a Privacy-First Cognitive Inspection Engine. By utilizing Federated Learning and Local LLMs (DeepSeek), the system identifies documentation errors and regulatory risks, protecting pharmaceutical companies from financial losses estimated at 8M Euro/day during audit shutdowns.',
-      full_desc_ro: 'Aiudit Solutions dezvoltă un Motor Cognitiv de Inspecție Privacy-First. Prin Federated Learning și LLM-uri locale (DeepSeek), sistemul identifică erori de documentație și riscuri regulate în timp real, protejând companiile farmaceutice de pierderi estimate la 8M Euro/zi în timpul opririi pentru audit. Arhitectura asigură conformitate cu GXP fără expunerea datelor sensibile.',
-      full_desc_en: 'Aiudit Solutions develops a Privacy-First Cognitive Inspection Engine. By utilizing Federated Learning and Local LLMs (DeepSeek), the system identifies documentation errors and regulatory risks in real-time, protecting pharmaceutical companies from financial losses estimated at 8M Euro/day during audit shutdowns. The architecture ensures GXP compliance without exposing sensitive data.',
-      code_files: [
-        { name: 'inspection_engine.py', code: 'def detect_documentation_errors(doc):\n  llm_result = local_llm.analyze(doc)\n  return risk_assessment(llm_result)' }
+      id: 'aiudit',
+      name: 'Aiudit',
+      tagline: 'Deep-Check Cognitive Auditor',
+      headline_ro: 'Aiudit – Primul Auditor Digital cu Inteligență de Verificare în Cascadă',
+      headline_en: 'Aiudit – The First Digital Auditor with Cascade Verification Intelligence',
+      subheadline_ro: 'Nu doar scanezi documente, le supui unui stres-test digital. Garanția "Audit-Ready" pentru Pharma & Clinical.',
+      subheadline_en: 'You don\'t just scan documents, you subject them to a digital stress test. "Audit-Ready" guarantee for Pharma & Clinical.',
+      description_ro: 'Sistem de audit digital bazat pe Agentic AI și RAG. Verifică documentația în cascadă (Ensemble Voting) pentru a garanta starea de "Audit-Ready" în sectoare reglementate (Pharma, Medical).',
+      description_en: 'Digital audit system based on Agentic AI and RAG. Verifies documentation in cascade (Ensemble Voting) to guarantee "Audit-Ready" status in regulated sectors (Pharma, Medical).',
+      features: [
+        { title: 'Deep-Check', desc_ro: '10x Multi-Agent Verification (No Hallucinations)', desc_en: '10x Multi-Agent Verification (No Hallucinations)' },
+        { title: 'Chain-of-Thought', desc_ro: 'Explains logic & Cites Laws (GCP/SSM)', desc_en: 'Explains logic & Cites Laws (GCP/SSM)' },
+        { title: 'Privacy', desc_ro: 'Local Docker Execution (Data never leaves the building)', desc_en: 'Local Docker Execution (Data never leaves the building)' }
       ],
-      tech: ['Python', 'Angular', 'Docker', 'DeepSeek', 'RAG']
+      codeSnippet: `> Initiating Deep-Check...
+> Agent 1 (Syntax): OK
+> Agent 2 (Compliance): ERROR found in Section 4.2
+> Logic: "Semnătura datează dinainte de aprobarea etică."
+> Reference: Law 95/2006, Art 14.
+> RISK SCORE: HIGH (Audit Failure likely).`,
+      tech: ['DeepSeek-R1', 'Python', 'Vector DB', 'Angular'],
+      image: 'assets/dashboard_ui.png',
+      logo: 'assets/Logo.png'
+    },
+    {
+      id: 'guardian',
+      name: 'Guardian Aingel',
+      tagline: 'SSM Vision & Logistics Optimizer',
+      headline_ro: 'Guardian Aingel – Computer Vision & Predictive Logistics',
+      headline_en: 'Guardian Aingel – Computer Vision & Predictive Logistics',
+      subheadline_ro: 'Sistem proactiv de securitate (SSM) și optimizare logistică. Previne accidentele și întârzierile înainte să apară.',
+      subheadline_en: 'Proactive safety (HSE) and logistics optimization system. Prevents accidents and delays before they occur.',
+      description_ro: 'Nu este doar un "polițist" SSM, ci un scut logistic. Identifică lipsa echipamentului de protecție și recalculează fluxul livrărilor dacă betonul nu este turnat la timp, evitând pierderile operaționale.',
+      description_en: 'It is not just an HSE "cop," but a logistics shield. Identifies missing PPE and recalculates delivery flow if concrete is not poured on time, avoiding operational losses.',
+      features: [
+        { title: 'HSE/SSM', desc_ro: 'Detectează lipsa EIP (căști, vestă) instant.', desc_en: 'Detects missing PPE (Helmets, Vests) instantly.' },
+        { title: 'Logistics', desc_ro: 'Prezice întârzieri și sugerează reprogramare comenzilor.', desc_en: 'Predicts supply chain delays and suggests order rescheduling.' },
+        { title: 'Real-Time', desc_ro: 'Procesare 30ms pe dispozitive Edge.', desc_en: '30ms latency processing on Edge Devices.' }
+      ],
+      codeSnippet: `if detection.class == "no_helmet":
+  alert_level = "CRITICAL"
+  fine_risk = "5000 RON"
+
+elif logistics.delay > 15_mins:
+  schedule.reoptimize(target="Concrete_Pouring")
+  notify_manager("Delay predicted. Shift orders.")`,
+      tech: ['OpenCV', 'YOLO', 'TensorFlow', 'IoT Edge'],
+      image: 'assets/dashboard_ui.png',
+      logo: 'assets/LogoGuardianAingel.png'
+    }
+  ];
+
+  rProjects = [
+    {
+      title: 'Oncology Survival Analysis',
+      icon: '⚕️',
+      problem: 'Interpretarea datelor de supraviețuire brute este dificilă și predispusă la erori umane în studiile clinice.',
+      solution: 'Algoritm automatizat R pentru generarea curbelor Kaplan-Meier și calculul Hazard Ratio.',
+      impact: 'Decizii clinice bazate pe date statistice validate, standardizând raportarea eficacității tratamentului.',
+      code: `fit <- survfit(Surv(time, status) ~ treatment)\nggsurvplot(fit, data = lung, pval = TRUE)`,
+      image: 'assets/KMplot.png'
+    },
+    {
+      title: 'qPCR Validation Tool',
+      icon: '🧪',
+      problem: 'Calculul manual al eficienței PCR și regresiei liniare consumă 2 ore/set și riscă neconformitatea IVDR.',
+      solution: 'Script R care extrage automat valorile Cq, elimină outlierii și calculează panta/R².',
+      impact: 'Reducerea timpului de analiză cu 90% și asigurarea conformității instantanee cu normele de laborator.',
+      code: `model <- lm(Ct ~ log10(Conc), data=df)\nefficiency <- (10^(-1/coef(model)[2]) - 1) * 100`,
+      image: 'assets/r_qpcr.png'
+    },
+    {
+      title: 'Genomics Heatmap (PCA)',
+      icon: '🧬',
+      problem: 'Vizualizarea corelațiilor în seturi de date genomice multidimensionale este imposibilă în tabele standard.',
+      solution: 'Implementare Pheatmap cu Clustering Ierarhic pentru vizualizarea expresiei genice.',
+      impact: 'Identificarea biomarkerilor critici și a nișelor ecologice în studiile de mediu.',
+      code: `pheatmap(mat, clustering_distance_cols = "euclidean",
+         color = colorRampPalette(c("navy", "white", "firebrick3"))(50))`,
+      image: 'assets/r_heatmap.png'
     }
   ];
 
@@ -98,12 +166,24 @@ export class App {
     }
   ];
 
-  articles = [
-    { title: 'Breathing Chemicals: Air Pollution Review', type: 'Published (2022)' },
-    { title: 'Microbial pollution in Mureș River', type: 'Academic Research' },
-    { title: 'Genetic potential of groundwater bacteria', type: 'Thesis' }
+  leadership = [
+    {
+      title_ro: 'Certificare Engleză C2',
+      title_en: 'English C2 Certification',
+      desc_ro: 'Cambridge Advanced – Liceu Bilingv.',
+      desc_en: 'Cambridge Advanced – Bilingual High School.'
+    },
+    {
+      title_ro: 'Fondator – Club de Dezbateri',
+      title_en: 'Founder – High School Debate Club',
+      desc_ro: 'Public Speaking & Argumentation.',
+      desc_en: 'Public Speaking & Argumentation.'
+    },
+    {
+      title_ro: 'Fondator – Trupă de Teatru',
+      title_en: 'Founder – Theatre Troupe',
+      desc_ro: 'Directing, Scriptwriting, and Stage Presence.',
+      desc_en: 'Directing, Scriptwriting, and Stage Presence.'
+    }
   ];
-
-  ecosystemText_ro = 'Laboratorul meu acasă. Conduc o colecție de peste 300 de Aroizi rari, experimentând cu micro-mediile și culturile de țesut vegetal. Este locul unde curiozitatea biologică se întâlnește cu optimizarea sistemică.';
-  ecosystemText_en = 'My home laboratory. I manage a collection of over 300 rare Aroids, experimenting with micro-environments and plant tissue culture. It is where biological curiosity meets systematic optimization.';
 }
